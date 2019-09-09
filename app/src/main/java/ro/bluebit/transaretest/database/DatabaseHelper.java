@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-        public final static int VERSIUNE_BAZA_DE_DATE = 2;
+        public final static int VERSIUNE_BAZA_DE_DATE = 3;
 
         public DatabaseHelper(Context context) {
             super(context, Constructor.DATABASE_NAME, null, VERSIUNE_BAZA_DE_DATE);
@@ -48,6 +48,62 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db.execSQL("DROP TABLE IF EXISTS " + Constructor.TabTip.NUME_TABEL);
             db.execSQL("DROP TABLE IF EXISTS " + Constructor.TabUserPassword.NUME_TABEL );
             onCreate(db);
+            // introducere date pentru test
+            String sqlSir="INSERT INTO articole (cod_int, denumire, id_tip) VALUES   (200012546, 'CARCASA OVINA', 1)";
+            db.execSQL(sqlSir);
+            sqlSir="INSERT INTO articole (cod_int, denumire, id_tip) VALUES   (200024255, 'CARCASA PORC', 1)";
+            db.execSQL(sqlSir);
+            sqlSir= "INSERT INTO articole (cod_int, denumire, id_tip) VALUES   (200058509, 'CARCASA VITA', 1)";
+            db.execSQL(sqlSir);
+            sqlSir="INSERT INTO articole (cod_int, denumire, id_tip) VALUES   (200296684, 'CAP DE PORC', 1)";
+            db.execSQL(sqlSir);
+            sqlSir="INSERT INTO articole (cod_int, denumire, id_tip) VALUES   (200296686, 'PUI INTREG', 1)";
+            db.execSQL(sqlSir);
+            sqlSir="INSERT INTO articole (cod_int, denumire, id_tip) VALUES   (200296688, 'PULPA PUI CU OS MATERIE PRIMA', 1)";
+            db.execSQL(sqlSir);
+            sqlSir="INSERT INTO articole (cod_int, denumire, id_tip) VALUES   (200296690, 'PIEPT PUI CU OS MATERIE PRIMA', 1)";
+            db.execSQL(sqlSir);
+            sqlSir="INSERT INTO articole (cod_int, denumire, id_tip) VALUES   (200296692, 'PULPE SUPERIOARE CURCA', 1)";
+            db.execSQL(sqlSir);
+            sqlSir="INSERT INTO articole (cod_int, denumire, id_tip) VALUES   (200428368, 'CARNE VITA', 2)";
+            db.execSQL(sqlSir);
+            sqlSir="INSERT INTO articole (cod_int, denumire, id_tip) VALUES   (200661580, 'ORGANE VITA', 2)";
+            db.execSQL(sqlSir);
+            sqlSir="INSERT INTO articole (cod_int, denumire, id_tip) VALUES   (200804028, 'COSTITA PORC', 2)";
+            db.execSQL(sqlSir);
+            sqlSir="INSERT INTO articole (cod_int, denumire, id_tip) VALUES   (200809260, 'PULPA SUPERIOARA CURCAN CU OS SI PIELE', 1)";
+            db.execSQL(sqlSir);
+            sqlSir="INSERT INTO articole (cod_int, denumire, id_tip) VALUES   (200819098, 'PUI GRILL MATERIE PRIMA', 1)";
+            db.execSQL(sqlSir);
+            sqlSir="INSERT INTO articole (cod_int, denumire, id_tip) VALUES   (200823530, 'SFERT PULPA PC', 1)";
+            db.execSQL(sqlSir);
+            sqlSir="INSERT INTO articole (cod_int, denumire, id_tip) VALUES   (200855445, 'SFERT PULPA', 1)";
+            db.execSQL(sqlSir);
+            sqlSir="INSERT INTO articole (cod_int, denumire, id_tip) VALUES   (200855447, 'SFERT PULPA', 1)";
+            db.execSQL(sqlSir);
+            sqlSir="INSERT INTO articole (cod_int, denumire, id_tip) VALUES   (200864198, 'SFERT ANTERIOR', 1)";
+            db.execSQL(sqlSir);
+            sqlSir="INSERT INTO articole (cod_int, denumire, id_tip) VALUES   (200871783, 'COTLET PORC DEZOSAT CU SORIC', 2)";
+            db.execSQL(sqlSir);
+            sqlSir="INSERT INTO articole (cod_int, denumire, id_tip) VALUES   (200914948, 'PULPA OAIE FARA OS', 1)";
+            db.execSQL(sqlSir);
+            sqlSir="INSERT INTO articole (cod_int, denumire, id_tip) VALUES   (200915224, 'PULPA OAIE MATERIE PRIMA', 1)";
+            db.execSQL(sqlSir);
+            sqlSir="INSERT INTO articole (cod_int, denumire, id_tip) VALUES   (200930920, 'CARCASA MIEL', 1)";
+            db.execSQL(sqlSir);
+            sqlSir="INSERT INTO articole (cod_int, denumire, id_tip) VALUES   (200996625, 'PULPA LUCRU MISTRET', 2)";
+            db.execSQL(sqlSir);
+            sqlSir="INSERT INTO articole (cod_int, denumire, id_tip) VALUES   (200996629, 'PULPA LUCRU CERB', 2)";
+            db.execSQL(sqlSir);
+            sqlSir="INSERT INTO articole (cod_int, denumire, id_tip) VALUES   (200996649, 'PULPA LUCRU CURCA', 2)";
+            db.execSQL(sqlSir);
+            sqlSir="INSERT INTO articole (cod_int, denumire, id_tip) VALUES   (200996878, 'VANAT CALIT I', 2)";
+            db.execSQL(sqlSir);
+            sqlSir="INSERT INTO articole (cod_int, denumire, id_tip) VALUES   (200997015, 'ORGANE PUI', 2)";
+            db.execSQL(sqlSir);
+            sqlSir="INSERT INTO articole (cod_int, denumire, id_tip) VALUES   (200997185, 'PULMO', 2)";
+            db.execSQL(sqlSir);
+
         }
          public long addUser (String user, String password){
             SQLiteDatabase db = this.getWritableDatabase();

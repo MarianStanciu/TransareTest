@@ -12,14 +12,14 @@
     <string name="confirm_password_registeractivity">Confirm password</string>
     <string name="facturaEditText">Factura</string>
     <string name="greutate_materie_prima_din_factura">Greutate Materie Prima din Factura</string>
-    
+
     <string-array name="lista_selectie_transare">
         <item>Porc</item>
         <item>Vita</item>
         <item>Oaie</item>
         <item>Curcan</item>
-<!--        <item>Piept</item>-->
-<!--        <item>Cotlet</item>-->
-<!--        <item>Tocat</item>-->
+        <!--        <item>Piept</item>-->
+        <!--        <item>Cotlet</item>-->
+        <!--        <item>Tocat</item>-->
     </string-array>
 </resources>

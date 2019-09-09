@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import java.util.List;
@@ -21,6 +22,7 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity {
                                         "OAIE",
                                         "CURCAN"
                                         };
+    Context context;
 
     String SQLImportaDenumiri = ("Select" + Constructor.TabArticole.COL_3 +"from" + Constructor.TabArticole.NUME_TABEL);
     public RecyclerAdapterSelectieTransare recyclerAdapterSelectieTransare;
@@ -34,7 +36,7 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity {
         layoutManager = new GridLayoutManager(this, 4);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerAdapterSelectieTransare = new RecyclerAdapterSelectieTransare(images,mDenumiriMateriiPrime);
+        recyclerAdapterSelectieTransare = new RecyclerAdapterSelectieTransare(images,mDenumiriMateriiPrime, this );
         recyclerView.setAdapter(recyclerAdapterSelectieTransare);
     }
 }

@@ -1,5 +1,7 @@
 package ro.bluebit.transaretest.adapters;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,16 +15,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import ro.bluebit.transaretest.R;
+import ro.bluebit.transaretest.SelectieTransareProduseActivity;
 
 public class RecyclerAdapterSelectieTransare extends RecyclerView.Adapter<RecyclerAdapterSelectieTransare.ImageViewHolder> {
 
+    private Context context;
     private int[] images;
     String [] mDenumiriMateriiPrime ;
 
-    public RecyclerAdapterSelectieTransare (int[]images,String[]mDenumiriMateriiPrime){
+    public RecyclerAdapterSelectieTransare (int[]images,String[]mDenumiriMateriiPrime, Context context){
         this.images= images;
+
         this.mDenumiriMateriiPrime=mDenumiriMateriiPrime;
 
+        this.context= context;
 
 
     }
@@ -30,7 +36,7 @@ public class RecyclerAdapterSelectieTransare extends RecyclerView.Adapter<Recycl
     @Override
     public ImageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_selectie_factura_materie_prima,parent,false);
-        ImageViewHolder imageViewHolder = new ImageViewHolder(view);
+        ImageViewHolder imageViewHolder = new ImageViewHolder(view, context, images, mDenumiriMateriiPrime);
 
         return imageViewHolder;
     }
@@ -51,15 +57,33 @@ public class RecyclerAdapterSelectieTransare extends RecyclerView.Adapter<Recycl
         return images.length;
     }
 
-    public static class ImageViewHolder extends RecyclerView.ViewHolder {
+    public static class ImageViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         ImageView selectieImaginiTransare;
         TextView denumireSelectieImaginiTransare;
+        Context context;
+        int [] images;
+        String [] mDenumiriMateriiPrime;
 
-        public ImageViewHolder(@NonNull View itemView) {
+        public ImageViewHolder(@NonNull View itemView, Context context, int[] images, String [] mDenumiriMateriiPrime) {
             super(itemView);
             selectieImaginiTransare=itemView.findViewById(R.id.afisareImaginiSelectie);
             denumireSelectieImaginiTransare=itemView.findViewById(R.id.textViewAfisareImaginiSelectie);
+            this.context=context;
+            this.images= images;
+            this.mDenumiriMateriiPrime=mDenumiriMateriiPrime;
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            Intent intentDeschideTransareProduse = new Intent(context,  SelectieTransareProduseActivity.class);
+ //           intentDeschideTransareProduse.putExtra("image_id", images[getAdapterPosition()]);
+//            intentDeschideTransareProduse.putExtra("mDenumiriMateriiPrime_id",mDenumiriMateriiPrime[getAdapterPosition()]);
+
+
+            context.startActivity(intentDeschideTransareProduse);
         }
     }
+
 }

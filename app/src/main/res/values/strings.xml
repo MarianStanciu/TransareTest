@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">TransareTest</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="not_registered">Not registered?</string>
+    <string name="register">Register</string>
+    <string name="repeat_password">Repeat password</string>
+    <string name="confirm_password">Confirm_password</string>
+    <string name="register_activity">Register</string>
+    <string name="login">Login</string>
+    <string name="login_register_activity">Login</string>
+    <string name="confirm_password_registeractivity">Confirm password</string>
+    <string name="facturaEditText">Factura</string>
+    <string name="greutate_materie_prima_din_factura">Greutate Materie Prima din Factura</string>
+    
+    <string-array name="lista_selectie_transare">
+        <item>Porc</item>
+        <item>Vita</item>
+        <item>Oaie</item>
+        <item>Curcan</item>
+<!--        <item>Piept</item>-->
+<!--        <item>Cotlet</item>-->
+<!--        <item>Tocat</item>-->
+    </string-array>
+</resources>

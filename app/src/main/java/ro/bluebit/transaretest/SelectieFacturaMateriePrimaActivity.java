@@ -9,18 +9,20 @@ import android.os.Bundle;
 import java.util.List;
 
 import ro.bluebit.transaretest.adapters.RecyclerAdapterSelectieTransare;
+import ro.bluebit.transaretest.database.Constructor;
 
 public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private int [] images ={ R.drawable.porc, R.drawable.vaca, R.drawable.oaie,R.drawable.curcan};
+
     String [] mDenumiriMateriiPrime = { "PORC",
                                         "VACA",
                                         "OAIE",
                                         "CURCAN"
                                         };
 
-
+    String SQLImportaDenumiri = ("Select" + Constructor.TabArticole.COL_3 +"from" + Constructor.TabArticole.NUME_TABEL);
     public RecyclerAdapterSelectieTransare recyclerAdapterSelectieTransare;
     private RecyclerView.LayoutManager layoutManager;
 

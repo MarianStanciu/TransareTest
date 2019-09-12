@@ -21,9 +21,9 @@ public class RecyclerAdapterSelectieTransare extends RecyclerView.Adapter<Recycl
 
     private Context context;
     private int[] images;
-    String [] mDenumiriMateriiPrime ;
+    List<String>  mDenumiriMateriiPrime  ;
 
-    public RecyclerAdapterSelectieTransare (int[]images,String[]mDenumiriMateriiPrime, Context context){
+    public RecyclerAdapterSelectieTransare (int[] images,List mDenumiriMateriiPrime, Context context){
         this.images= images;
 
         this.mDenumiriMateriiPrime=mDenumiriMateriiPrime;
@@ -36,7 +36,7 @@ public class RecyclerAdapterSelectieTransare extends RecyclerView.Adapter<Recycl
     @Override
     public ImageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_selectie_factura_materie_prima,parent,false);
-        ImageViewHolder imageViewHolder = new ImageViewHolder(view, context, images, mDenumiriMateriiPrime);
+        ImageViewHolder imageViewHolder = new ImageViewHolder(view,context, images, mDenumiriMateriiPrime);
 
         return imageViewHolder;
     }
@@ -45,7 +45,7 @@ public class RecyclerAdapterSelectieTransare extends RecyclerView.Adapter<Recycl
     public void onBindViewHolder(@NonNull ImageViewHolder holder, int position) {
 
         int image_id = images[position];
-        String mDenumiriMateriiPrime_id = mDenumiriMateriiPrime[ position];
+        String mDenumiriMateriiPrime_id  = mDenumiriMateriiPrime.get(position);
 
         holder.selectieImaginiTransare.setImageResource(image_id);
         holder.denumireSelectieImaginiTransare.setText(mDenumiriMateriiPrime_id);
@@ -63,9 +63,9 @@ public class RecyclerAdapterSelectieTransare extends RecyclerView.Adapter<Recycl
         TextView denumireSelectieImaginiTransare;
         Context context;
         int [] images;
-        String [] mDenumiriMateriiPrime;
+        List mDenumiriMateriiPrime;
 
-        public ImageViewHolder(@NonNull View itemView, Context context, int[] images, String [] mDenumiriMateriiPrime) {
+        public ImageViewHolder(@NonNull View itemView, Context context, int[] images, List mDenumiriMateriiPrime) {
             super(itemView);
             selectieImaginiTransare=itemView.findViewById(R.id.afisareImaginiSelectie);
             denumireSelectieImaginiTransare=itemView.findViewById(R.id.textViewAfisareImaginiSelectie);

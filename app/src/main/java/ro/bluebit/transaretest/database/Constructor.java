@@ -37,16 +37,16 @@ public class Constructor {
     public static final class TabArticole implements BaseColumns {
         //TABELA LOCALA
         public static final String NUME_TABEL = " articole ";
-        public static final String COL_1 = " _id ";
-        public static final String COL_2 = " cod_int ";
-        public static final String COL_3 = " denumire ";
-        public static final String COL_4 = " id_tip ";
+        public static final String COL_1 = "_id ";
+        public static final String COL_2 = "cod_int";
+        public static final String COL_3 = "denumire";
+        public static final String COL_4 = " id_tip";
         //TABELA SERVER
-        public static final String SNUME_TABEL = " articole ";
-        public static final String SCOL_1 = " _id ";
-        public static final String SCOL_2 = " cod_int ";
-        public static final String SCOL_3 = " denumire ";
-        public static final String SCOL_4 = " id_tip ";
+        public static final String SNUME_TABEL = "articole";
+        public static final String SCOL_1 = "_id";
+        public static final String SCOL_2 = "cod_int";
+        public static final String SCOL_3 = "denumire";
+        public static final String SCOL_4 = "id_tip";
 
         //SQL CREARE TABEL
         public static final String SQL_CREAZA_TABEL_ARTICOLE = ("create table if not exists " +
@@ -190,7 +190,7 @@ public class Constructor {
 
     public static final class TabTip implements BaseColumns {
         //TABELA LOCALA
-        public static final String NUME_TABEL = " tip ";
+        public static final String NUME_TABEL = "tip";
         public static final String COL_1 = "_id";
         public static final String COL_2 = "cod_int";
         public static final String COL_3 = "denumire";
@@ -215,7 +215,7 @@ public class Constructor {
     //tabela pentru parole si user
     public static final class TabUserPassword implements BaseColumns {
         //TABELA LOCALA
-        public static final String NUME_TABEL = " register_user ";
+        public static final String NUME_TABEL = "register_user";
         public static final String COL_1 = "_id";
         public static final String COL_2 = "username";
         public static final String COL_3 = "password";
@@ -226,4 +226,16 @@ public class Constructor {
             TabUserPassword.COL_1 + Tip.PRIMARY_AUTO + " , " +
             TabUserPassword.COL_2 + Tip.TEXT + " , " +
             TabUserPassword.COL_3 + Tip.TEXT + ")");
+
+
+
+    //sql  interogare tabel Articole
+
+    public static  final String SQL_QUERY_OBTI_DENUMIRE = (
+            "SELECT "+ TabArticole.COL_3+ " FROM " +TabArticole.NUME_TABEL+ " WHERE " + TabArticole.COL_4 + "=1"    );
+    //sql  interogare tabel Articole
+
+    public static  final String SQL_QUERY_OBTI_COD_INT = (
+            "SELECT "+ TabArticole.COL_2+ " FROM " +TabArticole.NUME_TABEL+ " WHERE " + TabArticole.COL_4 + "=1"
+    );
 }

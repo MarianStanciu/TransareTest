@@ -9,13 +9,16 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DatabaseHelper extends SQLiteOpenHelper {
 
         public final static int VERSIUNE_BAZA_DE_DATE = 3;
 
         public DatabaseHelper(Context context) {
             super(context, Constructor.DATABASE_NAME, null, VERSIUNE_BAZA_DE_DATE);
-            SQLiteDatabase db = this.getWritableDatabase();
+  //          SQLiteDatabase db = this.getWritableDatabase();
             Log.e("Baza de date", "baza de date " + getDatabaseName() + " a fost creata/deschisa");
         }
 
@@ -128,6 +131,49 @@ public class DatabaseHelper extends SQLiteOpenHelper {
              else
                  return false;
          }
-    }
+
+//    public List<String> getDenumiri() {
+//        List<String> retDenumiri = new ArrayList<String>();
+//        String selectQuery = Constructor.SQL_QUERY_OBTI_DENUMIRE;
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        Cursor cursor = db.rawQuery(selectQuery, null);
+//        if (cursor.moveToFirst()) {
+//            do {
+//                retDenumiri.add(cursor.getString(cursor.getColumnIndexOrThrow(Constructor.TabArticole.COL_3)));
+//            } while (cursor.moveToNext());
+//        }
+//        return retDenumiri;
+//    }
+
+        public List<String> getCodInt() {
+            List<String> retCodInt = new ArrayList<String>();
+            String selectQuery = Constructor.SQL_QUERY_OBTI_COD_INT;
+            SQLiteDatabase db = this.getWritableDatabase();
+            Cursor cursor = db.rawQuery(selectQuery, null);
+            if (cursor.moveToFirst()) {
+                do {
+                    retCodInt.add(cursor.getString(0));
+                } while (cursor.moveToNext());
+            }
+            return retCodInt;
+
+
+        }
+//        String[] denumiri;
+//
+//            SQLiteDatabase db = this.getWritableDatabase();
+//            String selectQuery = Constructor.SQL_QUERY_OBTI_DENUMIRE;
+//             Cursor cursor = db.rawQuery(selectQuery, null);
+//            if (cursor.moveToFirst()) {
+//                    denumiri = new String[cursor.getCount()];
+//                    int colIndex = cursor.getColumnIndex("denumiri");
+//                    do {
+//                        denumiri[cursor.getPosition()] = cursor.getString(colIndex);
+//                    } while (cursor.moveToNext());
+//                }
+
+
+
+}
 
 

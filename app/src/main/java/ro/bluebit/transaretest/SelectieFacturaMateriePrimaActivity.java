@@ -6,7 +6,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.nfc.Tag;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -15,7 +18,9 @@ import ro.bluebit.transaretest.database.Constructor;
 import ro.bluebit.transaretest.database.DatabaseHelper;
 import ro.bluebit.transaretest.utilitare.ItemDecorator;
 
-public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity {
+import static android.os.Build.VERSION_CODES.O;
+
+public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity implements RecyclerAdapterSelectieTransare.OnSelctieMPFacturaListener {
 
     private RecyclerView recyclerView;
     DatabaseHelper myDb ;
@@ -33,7 +38,7 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity {
     String SQLImportaDenumiri = ("Select" + Constructor.TabArticole.COL_3 +"from" + Constructor.TabArticole.NUME_TABEL);
     public RecyclerAdapterSelectieTransare recyclerAdapterSelectieTransare;
     private RecyclerView.LayoutManager layoutManager;
-
+    RecyclerAdapterSelectieTransare.OnSelctieMPFacturaListener monSelctieMPFacturaListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,13 +48,20 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity {
         List<String> mDenumiriMateriiPrime = Logica.getDenumiri(db)  ;
         int[] images =Logica.getImagini(db);
         recyclerView=findViewById(R.id.recyclerViewSelectieTransare);
-        layoutManager = new GridLayoutManager(this, 4);
+        layoutManager = new GridLayoutManager(this, 5);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
         ItemDecorator peVerctivala = new ItemDecorator(20);
         recyclerView.addItemDecoration(peVerctivala);
-        recyclerAdapterSelectieTransare = new RecyclerAdapterSelectieTransare(images,mDenumiriMateriiPrime, this );
+        recyclerAdapterSelectieTransare = new RecyclerAdapterSelectieTransare(images,mDenumiriMateriiPrime, this, this);
         recyclerView.setAdapter(recyclerAdapterSelectieTransare);
     }
 
+
+
+    @Override
+    public void OnSelctieMPFacturaClick(int position) {
+        Toast.makeText(this, "Ai selectat imaginea nr:" +(position+1) , Toast.LENGTH_SHORT).show();
+//        Log.d("ai facut : ", "click"+position);
+    }
 }

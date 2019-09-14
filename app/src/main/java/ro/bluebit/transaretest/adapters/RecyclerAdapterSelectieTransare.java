@@ -22,13 +22,16 @@ public class RecyclerAdapterSelectieTransare extends RecyclerView.Adapter<Recycl
     private Context context;
     private int[] images;
     List<String>  mDenumiriMateriiPrime  ;
+    public static OnSelctieMPFacturaListener mOnSelctieMPFacturaListener;
 
-    public RecyclerAdapterSelectieTransare (int[] images,List mDenumiriMateriiPrime, Context context){
+    public RecyclerAdapterSelectieTransare(int[] images, List mDenumiriMateriiPrime, RecyclerAdapterSelectieTransare.OnSelctieMPFacturaListener mOnSelctieMPFacturaListener, Context context){
         this.images= images;
 
         this.mDenumiriMateriiPrime=mDenumiriMateriiPrime;
 
         this.context= context;
+
+        this.mOnSelctieMPFacturaListener=mOnSelctieMPFacturaListener;
 
 
     }
@@ -36,7 +39,7 @@ public class RecyclerAdapterSelectieTransare extends RecyclerView.Adapter<Recycl
     @Override
     public ImageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_selectie_factura_materie_prima,parent,false);
-        ImageViewHolder imageViewHolder = new ImageViewHolder(view,context, images, mDenumiriMateriiPrime);
+        ImageViewHolder imageViewHolder = new ImageViewHolder(view,context, images, mDenumiriMateriiPrime,mOnSelctieMPFacturaListener);
 
         return imageViewHolder;
     }
@@ -64,26 +67,38 @@ public class RecyclerAdapterSelectieTransare extends RecyclerView.Adapter<Recycl
         Context context;
         int [] images;
         List mDenumiriMateriiPrime;
+        OnSelctieMPFacturaListener onSelctieMPFacturaListener;
 
-        public ImageViewHolder(@NonNull View itemView, Context context, int[] images, List mDenumiriMateriiPrime) {
+        public ImageViewHolder(@NonNull View itemView, Context context, int[] images, List mDenumiriMateriiPrime,OnSelctieMPFacturaListener onSelctieMPFacturaListener) {
             super(itemView);
             selectieImaginiTransare=itemView.findViewById(R.id.afisareImaginiSelectie);
             denumireSelectieImaginiTransare=itemView.findViewById(R.id.textViewAfisareImaginiSelectie);
             this.context=context;
             this.images= images;
             this.mDenumiriMateriiPrime=mDenumiriMateriiPrime;
+            this.onSelctieMPFacturaListener=onSelctieMPFacturaListener;
             itemView.setOnClickListener(this);
         }
+        @Override public void onClick(View view){
 
-        @Override
-        public void onClick(View view) {
-            Intent intentDeschideTransareProduse = new Intent(context,  SelectieTransareProduseActivity.class);
- //           intentDeschideTransareProduse.putExtra("image_id", images[getAdapterPosition()]);
-//            intentDeschideTransareProduse.putExtra("mDenumiriMateriiPrime_id",mDenumiriMateriiPrime[getAdapterPosition()]);
+                    mOnSelctieMPFacturaListener.OnSelctieMPFacturaClick(getAdapterPosition());
+                }
+
+//        @Override
+//        public void onClick(View view) {
+//            Intent intentDeschideTransareProduse = new Intent(context,  SelectieTransareProduseActivity.class);
+// //           intentDeschideTransareProduse.putExtra("image_id", images[getAdapterPosition()]);
+////            intentDeschideTransareProduse.putExtra("mDenumiriMateriiPrime_id",mDenumiriMateriiPrime[getAdapterPosition()]);
+//
+//
+//            context.startActivity(intentDeschideTransareProduse);
+//        }
 
 
-            context.startActivity(intentDeschideTransareProduse);
-        }
     }
 
+        public  interface OnSelctieMPFacturaListener {
+
+                        void OnSelctieMPFacturaClick(int position);
+        }
 }

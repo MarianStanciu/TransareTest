@@ -13,6 +13,7 @@ import java.util.List;
 import ro.bluebit.transaretest.adapters.RecyclerAdapterSelectieTransare;
 import ro.bluebit.transaretest.database.Constructor;
 import ro.bluebit.transaretest.database.DatabaseHelper;
+import ro.bluebit.transaretest.utilitare.ItemDecorator;
 
 public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity {
 
@@ -45,6 +46,8 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity {
         layoutManager = new GridLayoutManager(this, 4);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
+        ItemDecorator peVerctivala = new ItemDecorator(20);
+        recyclerView.addItemDecoration(peVerctivala);
         recyclerAdapterSelectieTransare = new RecyclerAdapterSelectieTransare(images,mDenumiriMateriiPrime, this );
         recyclerView.setAdapter(recyclerAdapterSelectieTransare);
     }

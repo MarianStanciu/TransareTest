@@ -13,7 +13,7 @@ import ro.bluebit.transaretest.database.DatabaseHelper;
 public class Logica {
     public Logica() {
     }
-
+//obtinere array cu denumirea materiilor prime
     public static List<String> getDenumiri(SQLiteDatabase db) {
         List<String> retDenumiri = new ArrayList<String>();
         String selectQuery = Constructor.SQL_QUERY_OBTI_DENUMIRE;
@@ -36,5 +36,31 @@ public class Logica {
         }
         return retArr;
     }
+
+    //obtinere array cu nr Cod_Int pentru materii prime
+    public static int [] getCodInt(SQLiteDatabase db) {
+        String selectQuery = Constructor.SQL_QUERY_OBTI_COD_INT;
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        int [] retCodInt= new int[cursor.getCount()];
+        if (cursor.moveToFirst()) {
+            for (int i = 0; i < cursor.getCount(); i++) {
+                //cursor.getInt(0)
+                retCodInt[i] = cursor.getInt(0);
+                cursor.moveToNext();
+
+        }
+//            do {
+//                retCodInt[cursor.getCount()]= cursor.getInt(cursor.getColumnIndex("cod_int"));
+//            }
+//            while (cursor.moveToNext());
+        }
+        return retCodInt;
+
+
+    }
+
+
+
+
 
 }

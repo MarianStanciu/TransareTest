@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.nfc.Tag;
 import android.os.Bundle;
@@ -46,6 +47,7 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity imple
         myDb= new DatabaseHelper(this);
         SQLiteDatabase db =myDb.getReadableDatabase();
         List<String> mDenumiriMateriiPrime = Logica.getDenumiri(db)  ;
+        int [] retCodInt=Logica.getCodInt(db);
         int[] images =Logica.getImagini(db);
         recyclerView=findViewById(R.id.recyclerViewSelectieTransare);
         layoutManager = new GridLayoutManager(this, 5);
@@ -53,7 +55,7 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity imple
         recyclerView.setLayoutManager(layoutManager);
         ItemDecorator peVerctivala = new ItemDecorator(20);
         recyclerView.addItemDecoration(peVerctivala);
-        recyclerAdapterSelectieTransare = new RecyclerAdapterSelectieTransare(images,mDenumiriMateriiPrime, this, this);
+        recyclerAdapterSelectieTransare = new RecyclerAdapterSelectieTransare(images,mDenumiriMateriiPrime,retCodInt, this, this);
         recyclerView.setAdapter(recyclerAdapterSelectieTransare);
     }
 
@@ -61,7 +63,9 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity imple
 
     @Override
     public void OnSelctieMPFacturaClick(int position) {
-        Toast.makeText(this, "Ai selectat imaginea nr:" +(position+1) , Toast.LENGTH_SHORT).show();
-//        Log.d("ai facut : ", "click"+position);
+        Toast.makeText(this,"Ai selectat fotografia " +(position) , Toast.LENGTH_SHORT).show();
+//        Intent intentDeschideTransareProduse = new Intent(this,  SelectieTransareProduseActivity.class);
+//        startActivity(intentDeschideTransareProduse);
+
     }
 }

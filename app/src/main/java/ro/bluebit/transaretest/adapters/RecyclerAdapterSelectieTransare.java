@@ -80,7 +80,7 @@ public class RecyclerAdapterSelectieTransare extends RecyclerView.Adapter<Recycl
         List mDenumiriMateriiPrime;
         OnSelctieMPFacturaListener onSelctieMPFacturaListener;
 
-        public ImageViewHolder(@NonNull View itemView, Context context, int[] images, List mDenumiriMateriiPrime, int[] retCodInt, OnSelctieMPFacturaListener onSelctieMPFacturaListener) {
+        private ImageViewHolder(@NonNull View itemView, Context context, int[] images, List mDenumiriMateriiPrime, int[] retCodInt, OnSelctieMPFacturaListener onSelctieMPFacturaListener) {
             super(itemView);
             selectieImaginiTransare=itemView.findViewById(R.id.afisareImaginiSelectie);
             denumireSelectieImaginiTransare=itemView.findViewById(R.id.textViewAfisareImaginiSelectie);

@@ -40,6 +40,7 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity imple
     public RecyclerAdapterSelectieTransare recyclerAdapterSelectieTransare;
     private RecyclerView.LayoutManager layoutManager;
     RecyclerAdapterSelectieTransare.OnSelctieMPFacturaListener monSelctieMPFacturaListener;
+    int retCodInt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,8 +65,9 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity imple
     @Override
     public void OnSelctieMPFacturaClick(int position) {
         Toast.makeText(this,"Ai selectat fotografia " +(position) , Toast.LENGTH_SHORT).show();
-//        Intent intentDeschideTransareProduse = new Intent(this,  SelectieTransareProduseActivity.class);
-//        startActivity(intentDeschideTransareProduse);
+        Intent intentDeschideTransareProduse = new Intent(this,  SelectieTransareProduseActivity.class);
+//        intentDeschideTransareProduse.getIntExtra("retCodInt_id ",retCodInt[getAdapterPosition()]) ;
+        startActivity(intentDeschideTransareProduse);
 
     }
 }

@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import ro.bluebit.transaretest.R;
+import ro.bluebit.transaretest.SelectieFacturaMateriePrimaActivity;
 import ro.bluebit.transaretest.SelectieTransareProduseActivity;
 
 public class RecyclerAdapterSelectieTransare extends RecyclerView.Adapter<RecyclerAdapterSelectieTransare.ImageViewHolder> {
@@ -64,7 +65,7 @@ public class RecyclerAdapterSelectieTransare extends RecyclerView.Adapter<Recycl
 
     @Override
     public int getItemCount() {
-        return retCodInt.length;
+        return images.length;
 
     }
 
@@ -94,6 +95,7 @@ public class RecyclerAdapterSelectieTransare extends RecyclerView.Adapter<Recycl
         @Override public void onClick(View view){
 
                     mOnSelctieMPFacturaListener.OnSelctieMPFacturaClick(getAdapterPosition());
+
                 }
 
 //        @Override

@@ -26,7 +26,7 @@ public class SelectieTransareProduseActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         String cod =String.valueOf( extras.getInt("retCodInt_id"));
         codTV.setText(cod);
-        String denumire=String.valueOf(extras.getInt("denumire_id"));
+        String denumire=extras.getString("denumire_id");
         denTV.setText(denumire);
     }
 }

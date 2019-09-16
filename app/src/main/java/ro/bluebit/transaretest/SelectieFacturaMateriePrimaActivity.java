@@ -1,17 +1,12 @@
 package ro.bluebit.transaretest;
 
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
-import android.nfc.Tag;
-import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -19,8 +14,6 @@ import ro.bluebit.transaretest.adapters.RecyclerAdapterSelectieTransare;
 import ro.bluebit.transaretest.database.Constructor;
 import ro.bluebit.transaretest.database.DatabaseHelper;
 import ro.bluebit.transaretest.utilitare.ItemDecorator;
-
-import static android.os.Build.VERSION_CODES.O;
 
 public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity implements RecyclerAdapterSelectieTransare.OnSelctieMPFacturaListener {
 
@@ -57,7 +50,7 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity imple
         layoutManager = new GridLayoutManager(this, 5);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
-        ItemDecorator peVerctivala = new ItemDecorator(20);
+        ItemDecorator peVerctivala = new ItemDecorator(40);
         recyclerView.addItemDecoration(peVerctivala);
         recyclerAdapterSelectieTransare = new RecyclerAdapterSelectieTransare(images,mDenumiriMateriiPrime,retCodInt, this, this);
         recyclerView.setAdapter(recyclerAdapterSelectieTransare);

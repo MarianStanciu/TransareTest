@@ -3,12 +3,10 @@ package ro.bluebit.transaretest;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 import ro.bluebit.transaretest.database.Constructor;
-import ro.bluebit.transaretest.database.DatabaseHelper;
 
 public class Logica {
     public Logica() {
@@ -31,7 +29,7 @@ public class Logica {
         int[] retArr = new int[cursor.getCount() ];
         if (cursor.moveToFirst()) {
             do {
-                retArr[cursor.getPosition()]=R.drawable.porc;
+                retArr[cursor.getPosition()]=R.drawable.satar;
             } while (cursor.moveToNext());
         }
         return retArr;

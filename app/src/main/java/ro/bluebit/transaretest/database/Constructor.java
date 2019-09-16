@@ -36,8 +36,8 @@ public class Constructor {
 //tabel 1 ARTICOLE
     public static final class TabArticole implements BaseColumns {
         //TABELA LOCALA
-        public static final String NUME_TABEL = " articole ";
-        public static final String COL_1 = "_id ";
+        public static final String NUME_TABEL = "articole";
+        public static final String COL_1 = "_id";
         public static final String COL_2 = "cod_int";
         public static final String COL_3 = "denumire";
         public static final String COL_4 = " id_tip";

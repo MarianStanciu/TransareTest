@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,19 +15,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import ro.bluebit.transaretest.R;
-import ro.bluebit.transaretest.SelectieFacturaMateriePrimaActivity;
 import ro.bluebit.transaretest.SelectieTransareProduseActivity;
 
 public class RecyclerAdapterSelectieTransare extends RecyclerView.Adapter<RecyclerAdapterSelectieTransare.ImageViewHolder> {
 
     private Context context;
     private int[] images;
-    int [] retCodInt;
-    List<String>  mDenumiriMateriiPrime  ;
+    int[] retCodInt;
+    List<String>  mDenumiriMateriiPrime;
     public static OnSelctieMPFacturaListener mOnSelctieMPFacturaListener;
 
 
-    public RecyclerAdapterSelectieTransare(int[] images, List mDenumiriMateriiPrime,int [] retCodInt, RecyclerAdapterSelectieTransare.OnSelctieMPFacturaListener mOnSelctieMPFacturaListener, Context context){
+    public RecyclerAdapterSelectieTransare(int[] images, List mDenumiriMateriiPrime,int[] retCodInt, RecyclerAdapterSelectieTransare.OnSelctieMPFacturaListener mOnSelctieMPFacturaListener, Context context){
         this.images= images;
 
         this.mDenumiriMateriiPrime=mDenumiriMateriiPrime;
@@ -82,7 +80,7 @@ public class RecyclerAdapterSelectieTransare extends RecyclerView.Adapter<Recycl
         List mDenumiriMateriiPrime;
         OnSelctieMPFacturaListener onSelctieMPFacturaListener;
 
-        private ImageViewHolder(@NonNull View itemView, final Context context, int[] images, List mDenumiriMateriiPrime, final int[] retCodInt, OnSelctieMPFacturaListener onSelctieMPFacturaListener) {
+        private ImageViewHolder(@NonNull View itemView, final Context context, int[] images, final List mDenumiriMateriiPrime, final int[] retCodInt, OnSelctieMPFacturaListener onSelctieMPFacturaListener) {
             super(itemView);
             selectieImaginiTransare=itemView.findViewById(R.id.afisareImaginiSelectie);
             denumireSelectieImaginiTransare=itemView.findViewById(R.id.textViewAfisareImaginiSelectie);
@@ -103,6 +101,7 @@ public class RecyclerAdapterSelectieTransare extends RecyclerView.Adapter<Recycl
                         intent.putExtra("retCodInt_id",retCodInt[getAdapterPosition()] );
                         context.startActivity(intent);
                         Toast.makeText(v.getContext(), "Ai selectat Cod INT : " +retCodInt[getAdapterPosition()], Toast.LENGTH_LONG).show();
+                        Toast.makeText(v.getContext(), "Ai selectat: " + mDenumiriMateriiPrime.get(getAdapterPosition()), Toast.LENGTH_LONG).show();
                     }
                 }
             });

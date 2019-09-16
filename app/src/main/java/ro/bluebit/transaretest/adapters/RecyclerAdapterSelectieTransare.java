@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,6 +26,7 @@ public class RecyclerAdapterSelectieTransare extends RecyclerView.Adapter<Recycl
     int [] retCodInt;
     List<String>  mDenumiriMateriiPrime  ;
     public static OnSelctieMPFacturaListener mOnSelctieMPFacturaListener;
+
 
     public RecyclerAdapterSelectieTransare(int[] images, List mDenumiriMateriiPrime,int [] retCodInt, RecyclerAdapterSelectieTransare.OnSelctieMPFacturaListener mOnSelctieMPFacturaListener, Context context){
         this.images= images;
@@ -80,7 +82,7 @@ public class RecyclerAdapterSelectieTransare extends RecyclerView.Adapter<Recycl
         List mDenumiriMateriiPrime;
         OnSelctieMPFacturaListener onSelctieMPFacturaListener;
 
-        private ImageViewHolder(@NonNull View itemView, Context context, int[] images, List mDenumiriMateriiPrime, int[] retCodInt, OnSelctieMPFacturaListener onSelctieMPFacturaListener) {
+        private ImageViewHolder(@NonNull View itemView, final Context context, int[] images, List mDenumiriMateriiPrime, final int[] retCodInt, OnSelctieMPFacturaListener onSelctieMPFacturaListener) {
             super(itemView);
             selectieImaginiTransare=itemView.findViewById(R.id.afisareImaginiSelectie);
             denumireSelectieImaginiTransare=itemView.findViewById(R.id.textViewAfisareImaginiSelectie);
@@ -90,11 +92,24 @@ public class RecyclerAdapterSelectieTransare extends RecyclerView.Adapter<Recycl
             this.mDenumiriMateriiPrime=mDenumiriMateriiPrime;
             this.onSelctieMPFacturaListener=onSelctieMPFacturaListener;
             this.retCodInt=retCodInt;
-            itemView.setOnClickListener(this);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+
+                        Intent intent = new Intent(context, SelectieTransareProduseActivity.class);
+                        intent.putExtra("retCodInt_id",retCodInt[getAdapterPosition()] );
+                        context.startActivity(intent);
+                        Toast.makeText(v.getContext(), "Ai selectat Cod INT : " +retCodInt[getAdapterPosition()], Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
         }
         @Override public void onClick(View view){
 
-                    mOnSelctieMPFacturaListener.OnSelctieMPFacturaClick(getAdapterPosition());
+                    mOnSelctieMPFacturaListener.OnSelctieMPFacturaClick(getAdapterPosition() );
 
                 }
 

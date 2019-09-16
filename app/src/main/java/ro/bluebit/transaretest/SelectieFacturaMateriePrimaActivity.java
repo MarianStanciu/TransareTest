@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -22,6 +23,8 @@ import ro.bluebit.transaretest.utilitare.ItemDecorator;
 import static android.os.Build.VERSION_CODES.O;
 
 public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity implements RecyclerAdapterSelectieTransare.OnSelctieMPFacturaListener {
+
+
 
     private RecyclerView recyclerView;
     DatabaseHelper myDb ;
@@ -64,10 +67,10 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity imple
 
     @Override
     public void OnSelctieMPFacturaClick(int position) {
-        Toast.makeText(this,"Ai selectat fotografia " +(position) , Toast.LENGTH_SHORT).show();
-        Intent intentDeschideTransareProduse = new Intent(this,  SelectieTransareProduseActivity.class);
+//        Toast.makeText(this,"Ai selectat fotografia " +(position) , Toast.LENGTH_SHORT).show();
+//        Intent intentDeschideTransareProduse = new Intent(this,  SelectieTransareProduseActivity.class);
 //        intentDeschideTransareProduse.getIntExtra("retCodInt_id ",retCodInt[getAdapterPosition()]) ;
-        startActivity(intentDeschideTransareProduse);
+//        startActivity(intentDeschideTransareProduse);
 
     }
 }

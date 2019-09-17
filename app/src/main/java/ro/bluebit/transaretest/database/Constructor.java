@@ -158,7 +158,7 @@ public class Constructor {
         //TABELA LOCALA
         public static final String NUME_TABEL = "pozitii_transare";
         public static final String COL_1 = "_id";
-        public static final String COL_2 = "id_pozitii_transare";
+        public static final String COL_2 = "id_pozitii_transare"; // de anulat
         public static final String COL_3 = "cantitate";
         public static final String COL_4 = "id_pozitii_legatura";
         public static final String COL_5 = "Id_antet_transare";

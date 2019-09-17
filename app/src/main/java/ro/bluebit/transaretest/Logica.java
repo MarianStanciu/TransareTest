@@ -58,7 +58,16 @@ public class Logica {
 
 
     }
+// selectie sablon pentru cod_int de materie prima
 
+//    select
+//    antet_legaturi.cod_int as id_antet_legatura ,
+//    pozitii_legaturi.cod_int as id_pozitii_legatura ,
+//    articole.denumire
+//    from antet_legaturi
+//    inner join pozitii_legaturi  on antet_legaturi.cod_int=pozitii_legaturi.id_antet
+//    inner join articole on pozitii_legaturi.id_articol=articole.cod_int
+//    where antet_legaturi.id_articol=nCodIntDinArticole ( din onclick )
 
 
 

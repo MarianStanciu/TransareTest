@@ -105,6 +105,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             sqlSir="INSERT INTO articole (cod_int, denumire, id_tip) VALUES   (200997185, 'PULMO', 2)";
             db.execSQL(sqlSir);
 
+
+
         }
          public long addUser (String user, String password){
             SQLiteDatabase db = this.getWritableDatabase();

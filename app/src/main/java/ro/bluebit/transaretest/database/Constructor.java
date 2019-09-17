@@ -108,7 +108,7 @@ public class Constructor {
         public static final String SCOL_3 = "id_articol";
         public static final String SCOL_4 = "id_antet";
         //SQL CREARE TABEL
-        public static final String SQL_CREZA_TABEL_POZITII_LEGATURI = ("create table if not exists" +
+        public static final String SQL_CREZA_TABEL_POZITII_LEGATURI = ("create table if not exists " +
                 TabPozitiiLegaturi.NUME_TABEL + "(" +
                 TabPozitiiLegaturi.COL_1 + Tip.PRIMARY_AUTO + " , " +
                 TabPozitiiLegaturi.COL_2 + Tip.INTREG + " , " +

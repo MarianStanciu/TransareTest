@@ -12,7 +12,7 @@
         android:id="@+id/textViewAfisareDenumireTP"
         android:layout_width="250sp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="250dp"
+        android:layout_marginStart="350dp"
         android:layout_marginTop="24dp"
         android:layout_marginBottom="368dp"
         android:text="@string/textview"
@@ -20,20 +20,22 @@
         app:layout_constraintEnd_toStartOf="@+id/textViewAfisareCodIntTP"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="20sp"/>
 
     <TextView
         android:id="@+id/textViewAfisareCodIntTP"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:layout_marginLeft="600dp"
+        android:layout_marginLeft="700dp"
         android:layout_marginBottom="368dp"
         android:text="@string/afis_den_CodInt_TP"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="1.0"
+        android:textSize="20sp"/>
 
     <TextView
         android:id="@+id/textView3"
@@ -48,13 +50,14 @@
         app:layout_constraintEnd_toStartOf="@+id/textViewAfisareDenumireTP"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textColor="@color/colorGalben"/>
+        android:textColor="@color/colorGalben"
+        android:textSize="20sp"/>
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="550dp"
+        android:layout_marginStart="850dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="368dp"
@@ -63,5 +66,6 @@
         app:layout_constraintEnd_toStartOf="@+id/textViewAfisareCodIntTP"
         app:layout_constraintStart_toEndOf="@+id/textViewAfisareDenumireTP"
         app:layout_constraintTop_toTopOf="parent"
-        android:textColor="@color/colorGalben"/>
+        android:textColor="@color/colorGalben"
+        android:textSize="20sp"/>
 </RelativeLayout>

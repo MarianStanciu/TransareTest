@@ -13,23 +13,27 @@ android:layout_height="match_parent"
         android:layout_height="140dp">
 
         <EditText
+            android:inputType="numberDecimal"
             android:id="@+id/edittext_greutateTotala"
-            android:layout_width="350dp"
-            android:layout_height="40dp"
+            android:layout_width="550dp"
+            android:layout_height="60dp"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:clickable="true"
             android:hint="@string/greutate_materie_prima_din_factura"
-            android:textColor="@color/colorGalben" />
+            android:textColor="@color/colorGalben"
+            android:textSize="30sp"
+            />
 
         <EditText
             android:id="@+id/edittext_NrFactura"
             android:layout_width="350dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="450dp"
-            android:layout_marginTop="50dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="30dp"
             android:hint="@string/facturaEditText"
-            android:textColor="@color/colorGalben" />
+            android:textColor="@color/colorGalben"
+            android:textSize="30sp" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

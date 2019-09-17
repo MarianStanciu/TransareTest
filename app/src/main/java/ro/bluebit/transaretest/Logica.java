@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
+import ro.bluebit.transaretest.adapters.RecyclerAdapterSelectieTransare;
 import ro.bluebit.transaretest.database.Constructor;
 
 public class Logica {
@@ -22,6 +23,7 @@ public class Logica {
             } while (cursor.moveToNext());
         }
         return retDenumiri;
+
     }
     public static int[] getImagini(SQLiteDatabase db) {
         String selectQuery = Constructor.SQL_QUERY_OBTI_DENUMIRE;

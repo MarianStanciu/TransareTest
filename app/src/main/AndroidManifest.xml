@@ -9,10 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SelectieTransareProduseActivity"></activity>
-        <activity android:name=".SelectieFacturaMateriePrimaActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".SelectieTransareProduseActivity"
+            android:windowSoftInputMode="stateHidden"></activity>
+        <activity android:name=".SelectieFacturaMateriePrimaActivity"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".RegisterActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:name=".LoginActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

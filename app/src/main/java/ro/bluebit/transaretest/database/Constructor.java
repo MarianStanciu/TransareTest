@@ -40,7 +40,7 @@ public class Constructor {
         public static final String COL_1 = "_id";
         public static final String COL_2 = "cod_int";
         public static final String COL_3 = "denumire";
-        public static final String COL_4 = " id_tip";
+        public static final String COL_4 = "id_tip";
         //TABELA SERVER
         public static final String SNUME_TABEL = "articole";
         public static final String SCOL_1 = "_id";
@@ -67,17 +67,17 @@ public class Constructor {
 
     public static final class TabAntetLegaturi implements BaseColumns {
         //TABELA LOCALA
-        public static final String NUME_TABEL = " antet_legaturi ";
-        public static final String COL_1 = " _id ";
-        public static final String COL_2 = " cod_int ";
-        public static final String COL_3 = " id_articol ";
-        public static final String COL_4 = " Id_tip ";
+        public static final String NUME_TABEL = "antet_legaturi ";
+        public static final String COL_1 = "_id";
+        public static final String COL_2 = "cod_int";
+        public static final String COL_3 = "id_articol";
+        public static final String COL_4 = "Id_tip";
         //TABELA SERVER
-        public static final String SNUME_TABEL = " antet_legaturi ";
-        public static final String SCOL_1 = " _id ";
-        public static final String SCOL_2 = " cod_int ";
-        public static final String SCOL_3 = " id_articol ";
-        public static final String SCOL_4 = " Id_tip ";
+        public static final String SNUME_TABEL = "antet_legaturi";
+        public static final String SCOL_1 = "_id";
+        public static final String SCOL_2 = "cod_int";
+        public static final String SCOL_3 = "id_articol";
+        public static final String SCOL_4 = "Id_tip";
         //SQL CREARE TABEL
         public static final String SQL_CREZA_TABEL_ANTET_LEGATURI = ("create table if not exists " +
                 TabAntetLegaturi.NUME_TABEL + "(" +
@@ -96,17 +96,17 @@ public class Constructor {
     //tabel 3  POZITII LEGATURI
     public static final class TabPozitiiLegaturi implements BaseColumns {
         //TABELA LOCALA
-        public static final String NUME_TABEL = " pozitii_legaturi ";
-        public static final String COL_1 = " _id ";
-        public static final String COL_2 = " cod_int ";
-        public static final String COL_3 = " id_articol ";
-        public static final String COL_4 = " id_antet ";
+        public static final String NUME_TABEL = "pozitii_legaturi";
+        public static final String COL_1 = "_id";
+        public static final String COL_2 = "cod_int";
+        public static final String COL_3 = "id_articol";
+        public static final String COL_4 = "id_antet";
         //TABELA SERVER
-        public static final String SNUME_TABEL = " pozitii_legaturi ";
-        public static final String SCOL_1 = " _id ";
-        public static final String SCOL_2 = " cod_int ";
-        public static final String SCOL_3 = " id_articol ";
-        public static final String SCOL_4 = " id_antet ";
+        public static final String SNUME_TABEL = "pozitii_legaturi";
+        public static final String SCOL_1 = "_id";
+        public static final String SCOL_2 = "cod_int";
+        public static final String SCOL_3 = "id_articol";
+        public static final String SCOL_4 = "id_antet";
         //SQL CREARE TABEL
         public static final String SQL_CREZA_TABEL_POZITII_LEGATURI = ("create table if not exists" +
                 TabPozitiiLegaturi.NUME_TABEL + "(" +

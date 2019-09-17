@@ -1,12 +1,9 @@
 package ro.bluebit.transaretest;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.Objects;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class SelectieTransareProduseActivity extends AppCompatActivity {
 //    ImageView imageView;
@@ -24,7 +21,7 @@ public class SelectieTransareProduseActivity extends AppCompatActivity {
 //        imageView=findViewById(R.id.afisareImaginiSelectie);
 //        imageView.setImageResource(getIntent().getIntExtra("image_id",  00 ));
         Bundle extras = getIntent().getExtras();
-        String cod =String.valueOf( extras.getInt("retCodInt_id"));
+        String cod = String.valueOf(extras.getInt("retCodInt_id"));
         codTV.setText(cod);
         String denumire=extras.getString("denumire_id");
         denTV.setText(denumire);

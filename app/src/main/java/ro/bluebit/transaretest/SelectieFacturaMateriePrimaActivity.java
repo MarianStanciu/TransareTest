@@ -3,6 +3,7 @@ package ro.bluebit.transaretest;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -54,6 +55,8 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity imple
         recyclerView.addItemDecoration(peVerctivala);
         recyclerAdapterSelectieTransare = new RecyclerAdapterSelectieTransare(images,mDenumiriMateriiPrime,retCodInt, this, this);
         recyclerView.setAdapter(recyclerAdapterSelectieTransare);
+        recyclerView.setOverScrollMode(View.OVER_SCROLL_IF_CONTENT_SCROLLS);
+
     }
 
 

@@ -13,10 +13,11 @@
         android:background="@color/colorAlbastru"
         />
     <TextView
+
         android:layout_height="wrap_content"
         android:layout_width="0dp"
         android:layout_weight="75"
-        android:id="@+id/note_title"
+        android:id="@+id/rezultat_transare"
         android:textSize="23sp"
         android:lines="1"
         android:text="cotlet porc"
@@ -31,7 +32,7 @@
         android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:layout_weight="20"
-        android:id="@+id/gre_introd"
+        android:id="@+id/greutate_introd_rezultat_transare"
         android:padding="10dp"
         android:textColor="@color/colorAlbastru"/>
 

@@ -61,6 +61,7 @@ public class RecyclerAdapterSelectieTransare extends RecyclerView.Adapter<Recycl
         holder.denumireSelectieImaginiTransare.setText(mDenumiriMateriiPrime_id);
 //        holder.denumireCodInt.setText(String.valueOf(retCodInt_id));
         holder.denumireCodInt.setText(""+(retCodInt_id));
+
     }
 
     @Override

@@ -36,14 +36,15 @@ public class SelectieTransareProduseActivity extends AppCompatActivity {
 //        imageView.setImageResource(getIntent().getIntExtra("image_id",  00 ));
         Bundle extras = getIntent().getExtras();
         String cod = String.valueOf(extras.getInt("retCodInt_id"));
+        int codCod=extras.getShort("retCodInt_id");
         codTV.setText(cod);
         String denumire=extras.getString("denumire_id");
         denTV.setText(denumire);
 
         myDb= new DatabaseHelper(this);
         SQLiteDatabase db =myDb.getReadableDatabase();
-        List<String> retDenumiriPT = Logica.getDenumiriPT(db)  ;
-        int [] retCodIntPT=Logica.getCodIntPT(db);
+        List<String> retDenumiriPT = Logica.getDenumiriPT(db,codCod)  ;
+        int [] retCodIntPT=Logica.getCodIntPT(db,codCod);
         recyclerView=findViewById(R.id.recyclerviewTP);
         layoutManager = new GridLayoutManager(this, 2);
         recyclerView.setHasFixedSize(true);
@@ -54,11 +55,11 @@ public class SelectieTransareProduseActivity extends AppCompatActivity {
         recyclerView.setAdapter(recyclerAdapterTP);
         }
 
-        public static int sharedValue  ;{
-        Bundle extras = getIntent().getExtras();
-            int cod = extras.getInt("retCodInt_id");
-            sharedValue= cod;
-    }
+//        public static int sharedValue  ;{
+//        Bundle extras = getIntent().getExtras();
+//            int cod = extras.getInt("retCodInt_id");
+//            sharedValue= cod;
+//    }
 
 
 }

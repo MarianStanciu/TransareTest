@@ -75,11 +75,10 @@ public class Logica {
 
 //    obtinere array cu denumirea produselor transate
 
-    public static List<String> getDenumiriPT(SQLiteDatabase db) {
+    public static List<String> getDenumiriPT(SQLiteDatabase db, int nCodInt ) {
         List<String> retDenumiriPT = new ArrayList<String>();
 
-        int nCodInt = SelectieTransareProduseActivity.sharedValue;
-        String selectQuery = Constructor.get_SQL_QUERY_OBTINE_ANTET_LEGATURI(nCodInt);
+           String selectQuery = Constructor.get_SQL_QUERY_OBTINE_ANTET_LEGATURI(nCodInt);
         Cursor cursor = db.rawQuery(selectQuery, null);
         if (cursor.moveToFirst()) {
             do {
@@ -90,8 +89,7 @@ public class Logica {
     }
 
     //obtinere array cu nr Cod_IntM pentru materii prime
-    public static int[] getCodIntPT(SQLiteDatabase db) {
-        int nCodInt = SelectieTransareProduseActivity.sharedValue;
+    public static int[] getCodIntPT(SQLiteDatabase db,int nCodInt) {
         String selectQuery = Constructor.get_SQL_QUERY_OBTINE_ANTET_LEGATURI(nCodInt);
         Cursor cursor = db.rawQuery(selectQuery, null);
         int[] retCodIntPT = new int[cursor.getCount()];

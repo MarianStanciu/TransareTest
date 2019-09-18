@@ -4,8 +4,14 @@
     <color name="colorPrimaryDark">#005713</color>
     <color name="colorAccent">#8A0B16</color>
 
-    <color name="colorGalben">#EECD69</color>
+
     <color name="colorFundalSelectie">#3CB5CA</color>
     <color name="colorTextFundalSelectie">#DFDDC5</color>
+
+    <color name="colorText">#000</color>
+    <color name="colorFundal">#BBA948</color>
+    <color name="colorGri">#948C99</color>
+    <color name="colorGalben">#BCE0B66C</color>
+    <color name="colorAlbastru">#266EEC</color>
 
 </resources>

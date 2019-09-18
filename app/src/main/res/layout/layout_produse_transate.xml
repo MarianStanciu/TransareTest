@@ -1,9 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:weightSum="100"
+    android:background="@color/colorGalben"
+    android:gravity="center_vertical"
+    >
+    <view
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:background="@color/colorAlbastru"
+        />
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="75"
+        android:id="@+id/note_title"
+        android:textSize="23sp"
+        android:lines="1"
+        android:text="cotlet porc"
+        android:padding="10dp"
+        android:textColor="#000"/>
+    <view
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/colorGri"/>
+    <EditText
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="20"
+        android:id="@+id/gre_introd"
+        android:padding="10dp"
+        android:textColor="@color/colorAlbastru"/>
 
 
-
+    <view
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:background="@color/colorGri"/>
 </LinearLayout>

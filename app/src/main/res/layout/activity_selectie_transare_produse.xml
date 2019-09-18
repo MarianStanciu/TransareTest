@@ -13,7 +13,7 @@
         android:layout_width="250sp"
         android:layout_height="wrap_content"
         android:layout_marginStart="350dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="368dp"
         android:text="@string/textview"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -27,8 +27,8 @@
         android:id="@+id/textViewAfisareCodIntTP"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginLeft="700dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="1000dp"
         android:layout_marginBottom="368dp"
         android:text="@string/afis_den_CodInt_TP"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -42,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="368dp"
         android:text="@string/afis_den_TP"
@@ -58,7 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="850dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="368dp"
         android:text="@string/afis_den_CodInt_TP"
@@ -68,4 +68,11 @@
         app:layout_constraintTop_toTopOf="parent"
         android:textColor="@color/colorGalben"
         android:textSize="20sp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerviewTP"
+        android:layout_width="match_parent"
+        android:layout_height="750dp"
+        android:layout_marginTop="50dp"
+        />
 </RelativeLayout>

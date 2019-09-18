@@ -2,6 +2,8 @@ package ro.bluebit.transaretest.database;
 
 import android.provider.BaseColumns;
 
+import ro.bluebit.transaretest.adapters.RecyclerAdapterSelectieTransare;
+
 public class Constructor {
     private Constructor() {
     }
@@ -108,7 +110,7 @@ public class Constructor {
         public static final String SCOL_3 = "id_articol";
         public static final String SCOL_4 = "id_antet";
         //SQL CREARE TABEL
-        public static final String SQL_CREZA_TABEL_POZITII_LEGATURI = ("create table if not exists " +
+        public static final String SQL_CREZA_TABEL_POZITII_LEGATURI = (" create table if not exists " +
                 TabPozitiiLegaturi.NUME_TABEL + "(" +
                 TabPozitiiLegaturi.COL_1 + Tip.PRIMARY_AUTO + " , " +
                 TabPozitiiLegaturi.COL_2 + Tip.INTREG + " , " +
@@ -238,4 +240,34 @@ public class Constructor {
     public static  final String SQL_QUERY_OBTI_COD_INT = (
             "SELECT "+ TabArticole.COL_2+ " FROM " +TabArticole.NUME_TABEL+ " WHERE " + TabArticole.COL_4 + "=1"
     );
+
+
+
+    public  static String get_SQL_QUERY_OBTINE_ANTET_LEGATURI (int nCodInt){
+        return " SELECT " +
+                TabAntetLegaturi.NUME_TABEL+"."+TabAntetLegaturi.COL_2 + " as " +TabAntetTransare.COL_2 +" , "+
+                TabPozitiiLegaturi.NUME_TABEL+"."+TabPozitiiLegaturi.COL_2+ " as " +TabPozitiiTransare.COL_4 +" , "+
+                TabArticole.NUME_TABEL+"."+ TabArticole.COL_3 +
+                " FROM "+TabAntetLegaturi.NUME_TABEL+
+                "inner join " + TabPozitiiLegaturi.NUME_TABEL + " on "+TabAntetLegaturi.NUME_TABEL+"."+TabAntetLegaturi.COL_2+" = " +TabPozitiiLegaturi.NUME_TABEL+"."+ TabPozitiiLegaturi.COL_4+
+                "inner join " + TabArticole.NUME_TABEL+" on " + TabPozitiiLegaturi.NUME_TABEL+"."+ TabPozitiiLegaturi.COL_3+" = "+ TabArticole.NUME_TABEL+"."+TabArticole.COL_2+
+                " where " +
+                TabAntetLegaturi.NUME_TABEL+"."+TabAntetLegaturi.COL_3+" = "+nCodInt ;
+
+    }
+
+
+
+
+
+
+
+//    /    select
+//    antet_legaturi.cod_int as id_antet_legatura ,
+//    pozitii_legaturi.cod_int as id_pozitii_legatura ,
+//    articole.denumire
+//    from antet_legaturi
+//    inner join pozitii_legaturi  on antet_legaturi.cod_int=pozitii_legaturi.id_antet
+//    inner join articole on pozitii_legaturi.id_articol=articole.cod_int
+//    where antet_legaturi.id_articol=nCodIntDinArticole ( din onclick )
 }

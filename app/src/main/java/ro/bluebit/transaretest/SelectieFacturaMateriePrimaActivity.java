@@ -31,13 +31,13 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity imple
 //                                        "OAIE",
 //                                        "CURCAN"
 //                                        };
-    Context context;
 
-    String SQLImportaDenumiri = ("Select" + Constructor.TabArticole.COL_3 +"from" + Constructor.TabArticole.NUME_TABEL);
+
+
     public RecyclerAdapterSelectieTransare recyclerAdapterSelectieTransare;
     private RecyclerView.LayoutManager layoutManager;
     RecyclerAdapterSelectieTransare.OnSelctieMPFacturaListener monSelctieMPFacturaListener;
-    int retCodInt;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -36,7 +36,7 @@ public class SelectieTransareProduseActivity extends AppCompatActivity {
 //        imageView.setImageResource(getIntent().getIntExtra("image_id",  00 ));
         Bundle extras = getIntent().getExtras();
         String cod = String.valueOf(extras.getInt("retCodInt_id"));
-        int codCod=extras.getShort("retCodInt_id");
+        int codCod=extras.getInt("retCodInt_id");
         codTV.setText(cod);
         String denumire=extras.getString("denumire_id");
         denTV.setText(denumire);

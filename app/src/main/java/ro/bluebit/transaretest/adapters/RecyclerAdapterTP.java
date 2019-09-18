@@ -33,7 +33,7 @@ public class RecyclerAdapterTP extends RecyclerView.Adapter<RecyclerAdapterTP.Te
     public TextViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_produse_transate,parent,false);
         TextViewHolder textViewHolder= new TextViewHolder(view,context,retCodIntPT, retDenumiriPT );
-                return textViewHolder ;
+        return textViewHolder ;
     }
 
 
@@ -45,13 +45,14 @@ public class RecyclerAdapterTP extends RecyclerView.Adapter<RecyclerAdapterTP.Te
 
         holder.afisareDenumirePT.setText(retDenumiriPT_id);
 
+
 //        holder.denumireCodInt.setText(""+(retCodInt_id));
 //        holder.denumireSelectieImaginiTransare.setText(mDenumiriMateriiPrime_id);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return retDenumiriPT.size();
     }
     public static class TextViewHolder extends RecyclerView.ViewHolder {
 

@@ -243,22 +243,22 @@ public class Constructor {
 
 
 
+
+
     public  static String get_SQL_QUERY_OBTINE_ANTET_LEGATURI (int nCodInt){
         return " SELECT " +
                 TabAntetLegaturi.NUME_TABEL+"."+TabAntetLegaturi.COL_2 + " as " +TabAntetTransare.COL_2 +" , "+
                 TabPozitiiLegaturi.NUME_TABEL+"."+TabPozitiiLegaturi.COL_2+ " as " +TabPozitiiTransare.COL_4 +" , "+
                 TabArticole.NUME_TABEL+"."+ TabArticole.COL_3 +
-                " FROM "+TabAntetLegaturi.NUME_TABEL+
-                "inner join " + TabPozitiiLegaturi.NUME_TABEL + " on "+TabAntetLegaturi.NUME_TABEL+"."+TabAntetLegaturi.COL_2+" = " +TabPozitiiLegaturi.NUME_TABEL+"."+ TabPozitiiLegaturi.COL_4+
-                "inner join " + TabArticole.NUME_TABEL+" on " + TabPozitiiLegaturi.NUME_TABEL+"."+ TabPozitiiLegaturi.COL_3+" = "+ TabArticole.NUME_TABEL+"."+TabArticole.COL_2+
+                " FROM "+TabAntetLegaturi.NUME_TABEL +
+                " inner join " + TabPozitiiLegaturi.NUME_TABEL + " on "+TabAntetLegaturi.NUME_TABEL+"."+TabAntetLegaturi.COL_2+" = " +TabPozitiiLegaturi.NUME_TABEL+"."+ TabPozitiiLegaturi.COL_4+
+                " inner join " + TabArticole.NUME_TABEL+" on " + TabPozitiiLegaturi.NUME_TABEL+"."+ TabPozitiiLegaturi.COL_3+" = "+ TabArticole.NUME_TABEL+"."+TabArticole.COL_2+
                 " where " +
                 TabAntetLegaturi.NUME_TABEL+"."+TabAntetLegaturi.COL_3+" = "+nCodInt ;
 
-    }
+    };
 
-
-
-
+ //   Acum e bine. Lipseste un spatiu inainte de INNER : pozitii_legaturi.id_antetinner . Aici trebuia sa fie pozitii_legaturi.id_antet inner
 
 
 

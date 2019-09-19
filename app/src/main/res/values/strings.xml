@@ -15,6 +15,14 @@
     <string name="afis_den_TP">AI SELECTAT MATERIA PRIMA : </string>
     <string name="afis_den_CodInt_TP">Cod Int : </string>
     <string name="textview">TextView</string>
+    <string name="Utilizator">utilizator</string>
+    <string name="Parola">parola</string>
+    <string name="nu_esti_inregistrat">Nu esti inregistrat?</string>
+    <string name="inregistreaza_te">Inregistreaza-te</string>
+    <string name="confirma_parola">confirma parola</string>
+    <string name="inregistrare">Inregistrare</string>
+    <string name="deja_inregistrat">Deja inregistrat?</string>
+    <string name="cod_int">COD INT</string>
 
     <string-array name="lista_selectie_transare">
         <item>Porc</item>

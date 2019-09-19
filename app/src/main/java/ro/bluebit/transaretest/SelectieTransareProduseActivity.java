@@ -49,7 +49,7 @@ public class SelectieTransareProduseActivity extends AppCompatActivity {
         layoutManager = new GridLayoutManager(this, 2);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
-        ItemDecorator peVerctivala = new ItemDecorator(30);
+        ItemDecorator peVerctivala = new ItemDecorator(5);
         recyclerView.addItemDecoration(peVerctivala);
         recyclerAdapterTP = new RecyclerAdapterTP(context, retCodIntPT,  retDenumiriPT);
         recyclerView.setAdapter(recyclerAdapterTP);
@@ -60,7 +60,6 @@ public class SelectieTransareProduseActivity extends AppCompatActivity {
 //            int cod = extras.getInt("retCodInt_id");
 //            sharedValue= cod;
 //    }
-
 
 }
 

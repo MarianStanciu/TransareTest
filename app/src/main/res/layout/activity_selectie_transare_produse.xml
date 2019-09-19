@@ -10,9 +10,9 @@
 
     <TextView
         android:id="@+id/textViewAfisareDenumireTP"
-        android:layout_width="250sp"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="350dp"
+        android:layout_marginStart="330dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="368dp"
         android:text="@string/textview"
@@ -28,7 +28,7 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="1000dp"
+        android:layout_marginLeft="800dp"
         android:layout_marginBottom="368dp"
         android:text="@string/afis_den_CodInt_TP"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -50,23 +50,23 @@
         app:layout_constraintEnd_toStartOf="@+id/textViewAfisareDenumireTP"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textColor="@color/colorGalben"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"/>
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="850dp"
+        android:layout_marginStart="700dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="368dp"
-        android:text="@string/afis_den_CodInt_TP"
+        android:text="@string/cod_int"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textViewAfisareCodIntTP"
         app:layout_constraintStart_toEndOf="@+id/textViewAfisareDenumireTP"
         app:layout_constraintTop_toTopOf="parent"
-        android:textColor="@color/colorGalben"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"/>
 
     <androidx.recyclerview.widget.RecyclerView

@@ -23,7 +23,7 @@
         android:padding="10dp"
         android:text="cotlet porc"
         android:textColor="#000"
-        android:textSize="23sp" />
+        android:textSize="40sp" />
 
     <View
         android:layout_width="0dp"
@@ -36,7 +36,9 @@
         android:layout_weight="20"
         android:id="@+id/greutate_introd_rezultat_transare"
         android:padding="10dp"
-        android:textColor="@color/colorAlbastru"/>
+        android:textColor="#000"
+        android:textSize="40sp"
+        android:inputType="numberDecimal"/>
 
 
     <View

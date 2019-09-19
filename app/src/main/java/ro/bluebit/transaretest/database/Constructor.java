@@ -69,7 +69,7 @@ public class Constructor {
 
     public static final class TabAntetLegaturi implements BaseColumns {
         //TABELA LOCALA
-        public static final String NUME_TABEL = "antet_legaturi ";
+        public static final String NUME_TABEL = "antet_legaturi";
         public static final String COL_1 = "_id";
         public static final String COL_2 = "cod_int";
         public static final String COL_3 = "id_articol";

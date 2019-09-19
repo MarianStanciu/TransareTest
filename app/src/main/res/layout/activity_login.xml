@@ -16,7 +16,7 @@
         android:layout_height="80dp"
         android:layout_marginTop="200dp"
         android:layout_marginLeft="500dp"
-        android:hint="@string/username"
+        android:hint="@string/Utilizator"
         android:textSize="24sp"/>
     <EditText
         android:id="@+id/editext_password"
@@ -24,7 +24,7 @@
         android:layout_height="80dp"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="500dp"
-        android:hint="@string/password"
+        android:hint="@string/Parola"
         android:textSize="24sp"/>
 
     <Button
@@ -50,19 +50,19 @@
             android:layout_width="120dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:hint="@string/not_registered"
+            android:hint="@string/nu_esti_inregistrat"
             android:padding="10dp"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/textview_register"
             android:layout_width="127dp"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:hint="@string/register"
+            android:hint="@string/inregistreaza_te"
             android:padding="10dp"
             android:textColor="@color/colorAccent"
-            android:textSize="25sp"
+            android:textSize="15sp"
 
             android:textStyle="bold" />
 

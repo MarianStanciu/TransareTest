@@ -21,7 +21,7 @@ android:layout_height="match_parent"
             android:layout_marginTop="30dp"
             android:clickable="true"
             android:hint="@string/greutate_materie_prima_din_factura"
-            android:textColor="@color/colorGalben"
+            android:textColor="#000"
             android:textSize="30sp"
             />
 
@@ -29,20 +29,20 @@ android:layout_height="match_parent"
             android:id="@+id/edittext_NrFactura"
             android:layout_width="350dp"
             android:layout_height="60dp"
-            android:inputType = "numberDecimal"
+            android:inputType = "text"
             android:layout_marginLeft="150dp"
             android:layout_marginTop="30dp"
             android:hint="@string/facturaEditText"
-            android:textColor="@color/colorGalben"
+            android:textColor="#000"
             android:textSize="30sp" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewSelectieTransare"
         android:layout_width="match_parent"
-        android:layout_height="700dp"
+        android:layout_height="540dp"
         android:layout_marginTop="100dp"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:overScrollMode="ifContentScrolls"
         android:isScrollContainer="true"
         android:scrollbars="vertical"

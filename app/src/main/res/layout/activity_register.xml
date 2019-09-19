@@ -16,7 +16,7 @@
         android:layout_height="80dp"
         android:layout_marginTop="190dp"
         android:layout_marginLeft="500dp"
-        android:hint="@string/username"
+        android:hint="@string/Utilizator"
         android:textSize="24sp"/>
 
     <EditText
@@ -25,7 +25,7 @@
         android:layout_height="80dp"
         android:layout_marginTop="270dp"
         android:layout_marginLeft="500dp"
-        android:hint="@string/password"
+        android:hint="@string/Parola"
         android:textSize="24sp"/>
     <EditText
         android:id="@+id/editext_confirm_password"
@@ -33,7 +33,7 @@
         android:layout_height="80dp"
         android:layout_marginTop="350dp"
         android:layout_marginLeft="500dp"
-        android:hint="@string/confirm_password_registeractivity"
+        android:hint="@string/confirma_parola"
         android:textSize="24sp"/>
     <Button
         android:id="@+id/button_register"
@@ -41,7 +41,7 @@
         android:layout_height="80dp"
         android:layout_marginTop="430dp"
         android:layout_marginLeft="500dp"
-        android:hint="@string/register_activity"
+        android:hint="@string/inregistrare"
         android:background="#D215E04E"
         android:textSize="24sp"
         android:textStyle="bold"/>
@@ -59,7 +59,7 @@
             android:layout_width="150dp"
             android:layout_height="80dp"
             android:gravity="center_vertical"
-            android:hint="Already registered"
+            android:hint="@string/deja_inregistrat"
             android:padding="10dp"
             android:textSize="20sp"
             android:layout_marginLeft="30dp"/>

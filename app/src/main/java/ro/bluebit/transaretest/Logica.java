@@ -1,14 +1,11 @@
 package ro.bluebit.transaretest;
 
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.os.Bundle;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import ro.bluebit.transaretest.adapters.RecyclerAdapterSelectieTransare;
 import ro.bluebit.transaretest.database.Constructor;
 
 public class Logica {

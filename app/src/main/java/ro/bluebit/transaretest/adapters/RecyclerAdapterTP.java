@@ -14,18 +14,18 @@ import java.util.List;
 
 import ro.bluebit.transaretest.R;
 
-import static androidx.recyclerview.widget.RecyclerView.*;
-
 public class RecyclerAdapterTP extends RecyclerView.Adapter<RecyclerAdapterTP.TextViewHolder> {
 
     Context context;
     int[] retCodIntPT;
     List<String> retDenumiriPT;
 
+
     public RecyclerAdapterTP(Context context, int[] retCodIntPT, List<String> retDenumiriPT) {
         this.context = context;
         this.retCodIntPT = retCodIntPT;
         this.retDenumiriPT = retDenumiriPT;
+        //setHasStableIds(true); - id-uri stabile
     }
 
     @NonNull
@@ -70,6 +70,19 @@ public class RecyclerAdapterTP extends RecyclerView.Adapter<RecyclerAdapterTP.Te
             this.context = context;
             this.retCodIntPT = retCodIntPT;
             this.retDenumiriPT = retDenumiriPT;
+
         }
+
     }
+    // metode pentru a nu da shuffle la datele din edittext
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
+    }
+
 }

@@ -2,8 +2,6 @@ package ro.bluebit.transaretest.database;
 
 import android.provider.BaseColumns;
 
-import ro.bluebit.transaretest.adapters.RecyclerAdapterSelectieTransare;
-
 public class Constructor {
     private Constructor() {
     }

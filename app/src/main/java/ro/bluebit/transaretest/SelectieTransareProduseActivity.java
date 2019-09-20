@@ -59,8 +59,9 @@ public class SelectieTransareProduseActivity extends AppCompatActivity {
         recyclerView.addItemDecoration(peVerctivala);
         recyclerAdapterTP = new RecyclerAdapterTP(context, retCodIntPT,  retDenumiriPT);
         recyclerView.setAdapter(recyclerAdapterTP);
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
+
     //Tastatura dispare la scroll
         @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {

@@ -46,6 +46,7 @@ public class RecyclerAdapterTP extends RecyclerView.Adapter<RecyclerAdapterTP.Te
         holder.afisareDenumirePT.setText(retDenumiriPT_id);
 
 
+
 //        holder.denumireCodInt.setText(""+(retCodInt_id));
 //        holder.denumireSelectieImaginiTransare.setText(mDenumiriMateriiPrime_id);
     }

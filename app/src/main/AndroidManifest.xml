@@ -9,17 +9,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SelectieTransareProduseActivity"
+        <activity android:name=".VioricaPresedinte"></activity>
+        <activity
+            android:name=".SelectieTransareProduseActivity"
             android:windowSoftInputMode="stateHidden">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".SelectieFacturaMateriePrimaActivity" />
         </activity>
-        <activity android:name=".SelectieFacturaMateriePrimaActivity"
-            android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".RegisterActivity"
-            android:windowSoftInputMode="stateHidden|adjustPan"/>
-        <activity android:name=".LoginActivity"
+        <activity
+            android:name=".SelectieFacturaMateriePrimaActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".RegisterActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".LoginActivity"
             android:windowSoftInputMode="stateHidden|adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

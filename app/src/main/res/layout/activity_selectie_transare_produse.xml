@@ -8,6 +8,7 @@
     tools:context=".SelectieTransareProduseActivity"
     android:background="@color/colorFundalSelectie">>
 
+
     <TextView
         android:id="@+id/textViewAfisareDenumireTP"
         android:layout_width="350dp"
@@ -68,6 +69,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"/>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerviewTP"

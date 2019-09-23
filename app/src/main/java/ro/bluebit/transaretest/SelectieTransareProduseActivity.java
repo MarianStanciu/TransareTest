@@ -2,8 +2,11 @@ package ro.bluebit.transaretest;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -26,6 +29,7 @@ public class SelectieTransareProduseActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     DatabaseHelper myDb ;
     Context context;
+    MenuItem butonsalvare;
 
 
     private RecyclerView.LayoutManager layoutManager;
@@ -36,6 +40,7 @@ public class SelectieTransareProduseActivity extends AppCompatActivity {
         setContentView(R.layout.activity_selectie_transare_produse);
         denTV=findViewById(R.id.textViewAfisareDenumireTP);
         codTV=findViewById(R.id.textViewAfisareCodIntTP);
+        butonsalvare = findViewById(R.id.action_salvare);
 
 //        cod.setText(getIntent().getStringExtra(("retCodInt_id")));
 //        imageView=findViewById(R.id.afisareImaginiSelectie);
@@ -89,6 +94,26 @@ public class SelectieTransareProduseActivity extends AppCompatActivity {
         }
     }
 
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        switch (item.getItemId()) {
+//            case R.id.action_salvare:
+//                // User chose the "Settings" item, show the app settings UI...
+//                return true;
+//
+//           case R.id.action_favorite:
+//              // User chose the "Favorite" action, mark the current item
+//                // as a favorite...
+//               return true;
+//
+//            default:
+//                // If we got here, the user's action was not recognized.
+//                // Invoke the superclass to handle it.
+//                return super.onOptionsItemSelected(item);
+//
+//        }
+//    }
+
+
 
 
 //        public static int sharedValue  ;{
@@ -96,8 +121,26 @@ public class SelectieTransareProduseActivity extends AppCompatActivity {
 //            int cod = extras.getInt("retCodInt_id");
 //            sharedValue= cod;
 //    }
-
+// create an action bar button
+@Override
+public boolean onCreateOptionsMenu(Menu menu) {
+    getMenuInflater().inflate(R.menu.menu_aplicatie, menu);
+    return super.onCreateOptionsMenu(menu);
 }
+
+    // handle button activities
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_salvare) {
+            Intent intent = new Intent(SelectieTransareProduseActivity.this, VioricaPresedinte.class);
+            SelectieTransareProduseActivity.this.startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+}
+
 
 
 

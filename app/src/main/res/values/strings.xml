@@ -23,6 +23,7 @@
     <string name="inregistrare">Inregistrare</string>
     <string name="deja_inregistrat">Deja inregistrat?</string>
     <string name="cod_int">COD INT</string>
+    <string name="Salvare">Salvare</string>
 
     <string-array name="lista_selectie_transare">
         <item>Porc</item>

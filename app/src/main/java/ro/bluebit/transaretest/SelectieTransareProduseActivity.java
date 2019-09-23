@@ -137,10 +137,15 @@ public boolean onCreateOptionsMenu(Menu menu) {
         int id = item.getItemId();
 
         if (id == R.id.action_salvare) {
+            // insert inregistrare pt antet_transare
+
 //            Intent intent = new Intent(SelectieTransareProduseActivity.this, VioricaPresedinte.class);
 //            SelectieTransareProduseActivity.this.startActivity(intent);
             // creareare obiect baza de date
             // mDb.beginTransaction();
+            // insert inregistrare pt antet_transare
+            // mDb.setTransactionSuccessful();
+
             // se creeaza insert pe model sql cu ? in loc de valori
             // SQLiteStatement insert = mDb.compileStatement(sql);
             for ( int i =0 , n= recyclerView.getChildCount(); i<n; i++){

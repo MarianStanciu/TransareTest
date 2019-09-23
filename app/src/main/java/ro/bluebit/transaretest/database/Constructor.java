@@ -131,6 +131,7 @@ public class Constructor {
         public static final String COL_2 = "id_antet_legatura";
         public static final String COL_3 = "nr_factura";
         public static final String COL_4 = "data_ora";
+        // de introdus cant de mat prima ca si coloana
         //TABELA SERVER
         public static final String SNUME_TABEL = "antet_transare";
         public static final String SCOL_1 = "_id";

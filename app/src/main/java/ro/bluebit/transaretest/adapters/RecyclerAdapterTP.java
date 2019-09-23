@@ -58,7 +58,7 @@ public class RecyclerAdapterTP extends RecyclerView.Adapter<RecyclerAdapterTP.Te
     public static class TextViewHolder extends RecyclerView.ViewHolder {
 
         TextView afisareDenumirePT;
-        EditText preiaGreutate;
+        public EditText preiaGreutate;
         Context context;
         int[] retCodIntPT;
         List<String> retDenumiriPT;

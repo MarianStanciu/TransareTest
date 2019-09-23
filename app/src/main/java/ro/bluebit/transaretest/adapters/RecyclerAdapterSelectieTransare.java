@@ -1,5 +1,6 @@
 package ro.bluebit.transaretest.adapters;
 
+
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -102,8 +103,8 @@ public class RecyclerAdapterSelectieTransare extends RecyclerView.Adapter<Recycl
                         intentcdInt.putExtra("retCodInt_id",retCodInt[getAdapterPosition()] );
                         intentcdInt.putExtra("denumire_id", mDenumiriMateriiPrime.get(position).toString());
                         context.startActivity(intentcdInt);
-                        Toast.makeText(v.getContext(), "Ai selectat Cod INT : " +retCodInt[getAdapterPosition()], Toast.LENGTH_LONG).show();
-                        Toast.makeText(v.getContext(), "Ai selectat: " + mDenumiriMateriiPrime.get(getAdapterPosition()), Toast.LENGTH_LONG).show();
+//                        Toast.makeText(v.getContext(), "Ai selectat Cod INT : " +retCodInt[getAdapterPosition()], Toast.LENGTH_LONG).show();
+//                        Toast.makeText(v.getContext(), "Ai selectat: " + mDenumiriMateriiPrime.get(getAdapterPosition()), Toast.LENGTH_LONG).show();
                     }
                 }
             });

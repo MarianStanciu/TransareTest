@@ -1,6 +1,7 @@
 package ro.bluebit.transaretest;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -14,12 +15,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.menu.MenuView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
 import ro.bluebit.transaretest.adapters.RecyclerAdapterTP;
+import ro.bluebit.transaretest.database.Constructor;
 import ro.bluebit.transaretest.database.DatabaseHelper;
 import ro.bluebit.transaretest.utilitare.ItemDecorator;
 
@@ -134,8 +137,28 @@ public boolean onCreateOptionsMenu(Menu menu) {
         int id = item.getItemId();
 
         if (id == R.id.action_salvare) {
-            Intent intent = new Intent(SelectieTransareProduseActivity.this, VioricaPresedinte.class);
-            SelectieTransareProduseActivity.this.startActivity(intent);
+//            Intent intent = new Intent(SelectieTransareProduseActivity.this, VioricaPresedinte.class);
+//            SelectieTransareProduseActivity.this.startActivity(intent);
+            // creareare obiect baza de date
+            // mDb.beginTransaction();
+            // se creeaza insert pe model sql cu ? in loc de valori
+            // SQLiteStatement insert = mDb.compileStatement(sql);
+            for ( int i =0 , n= recyclerView.getChildCount(); i<n; i++){
+                View view = recyclerView.getChildAt(i);
+
+                RecyclerView.ViewHolder holder = recyclerView.getChildViewHolder(view);
+                RecyclerAdapterTP.TextViewHolder v = ((RecyclerAdapterTP.TextViewHolder) holder) ;
+//                https://stackoverflow.com/questions/10184282/android-inserting-thousands-of-rows-to-sqlite
+                //insert.bindString(1, <valoarea> );
+
+//                ContentValues cval = new ContentValues();
+//                cval.put(Constructor.TabPozitiiTransare.COL_3,
+//                        Double.valueOf(v.preiaGreutate.getText().toString()));
+
+
+            }
+//            mDb.setTransactionSuccessful();
+//            mDb.endTransaction();
         }
         return super.onOptionsItemSelected(item);
     }

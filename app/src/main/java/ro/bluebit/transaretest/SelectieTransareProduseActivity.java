@@ -56,9 +56,12 @@ public class SelectieTransareProduseActivity extends AppCompatActivity {
 
 
 
+
         myDb= new DatabaseHelper(this);
         SQLiteDatabase db =myDb.getReadableDatabase();
         List<String> retDenumiriPT = Logica.getDenumiriPT(db,codCod)  ;
+        SelectieFacturaMateriePrimaActivity abc = new SelectieFacturaMateriePrimaActivity();
+        List<SelectieFacturaMateriePrimaActivity.TrimiteEditTextGF> trimiteEditTextGFS = abc.getGF(mSfacturaF, mSgreutateF);
         int [] retCodIntPT=Logica.getCodIntPT(db,codCod);
         recyclerView=findViewById(R.id.recyclerviewTP);
         layoutManager = new GridLayoutManager(this, 2);
@@ -69,6 +72,11 @@ public class SelectieTransareProduseActivity extends AppCompatActivity {
         recyclerAdapterTP = new RecyclerAdapterTP(context, retCodIntPT,  retDenumiriPT);
         recyclerView.setAdapter(recyclerAdapterTP);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+
+
+
         }
 
     //Tastatura dispare la scroll
@@ -123,14 +131,12 @@ public boolean onCreateOptionsMenu(Menu menu) {
             SQLiteDatabase db = myDb.getWritableDatabase();
             db.beginTransaction();
 
-            String sqlSir= "insert into " + Constructor.TabAntetTransare.NUME_TABEL +Constructor.TabAntetTransare.COL_2  + " values " + (codTV.getText().toString());
+            String sqlSir= "insert into " + Constructor.TabAntetTransare.NUME_TABEL +Constructor.TabAntetTransare.COL_2+Constructor.TabAntetTransare.COL_5+Constructor.TabAntetTransare.COL_3
+                    + " values " +
+                    (codTV.getText().toString())+ mSgreutateF +mSfacturaF;
             db.execSQL(sqlSir);
-            SelectieFacturaMateriePrimaActivity abc = new SelectieFacturaMateriePrimaActivity();
-            boolean isInserted = abc.insertGreutateFactura();
-            if (isInserted == true)
-                Toast.makeText(this, "Totmesajjj", Toast.LENGTH_SHORT).show();
-            else
-                Toast.makeText(this, "Dedataastanimic", Toast.LENGTH_SHORT).show();
+
+
             db.setTransactionSuccessful();
             db.endTransaction();
 

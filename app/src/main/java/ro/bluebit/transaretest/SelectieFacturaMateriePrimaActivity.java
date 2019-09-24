@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ro.bluebit.transaretest.adapters.RecyclerAdapterSelectieTransare;
@@ -79,18 +80,52 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity imple
 //        String sqlSirGreutateFact = "Insert into " + Constructor.TabAntetTransare.NUME_TABEL + "." + (Constructor.TabAntetTransare.COL_5 + "," + Constructor.TabAntetTransare.COL_3)
 //                + " values " + (sgreutate + sfactura);
 //    }
+    public class TrimiteEditTextGF{
+       private String greutate;
+       private String factura;
 
-    public boolean insertGreutateFactura(){
-        SQLiteDatabase db =myDb.getWritableDatabase();
-        ContentValues cval = new ContentValues();
-        cval.put(Constructor.TabAntetTransare.COL_5, sgreutate);
-        cval.put(Constructor.TabAntetTransare.COL_3, sfactura);
-        long result = db.insert(Constructor.TabAntetTransare.NUME_TABEL, null, cval);
-        if (result==-1)
-            return false;
-        else
-            return true;
+    public String getFactura() {
+        return factura;
     }
+
+    public void setFactura(String factura) {
+        this.factura = factura;
+    }
+
+    public String getGreutate() {
+        return greutate;
+    }
+
+    public void setGreutate(String greutate) {
+        this.greutate = greutate;
+    }
+}
+
+    public List<TrimiteEditTextGF> getGF(String cantitate, String factura) {
+        List<TrimiteEditTextGF> trimiteEditTextGFS = new ArrayList<TrimiteEditTextGF>();
+        TrimiteEditTextGF member = new TrimiteEditTextGF();
+
+                    member.setGreutate(cantitate);
+                    member.setFactura(factura);
+        trimiteEditTextGFS.add(member);
+        return trimiteEditTextGFS;
+            }
+
+
+
+
+
+//    public boolean insertGreutateFactura(){
+//        SQLiteDatabase db =myDb.getWritableDatabase();
+//        ContentValues cval = new ContentValues();
+//        cval.put(Constructor.TabAntetTransare.COL_5, sgreutate);
+//        cval.put(Constructor.TabAntetTransare.COL_3, sfactura);
+//        long result = db.insert(Constructor.TabAntetTransare.NUME_TABEL, null, cval);
+//        if (result==-1)
+//            return false;
+//        else
+//            return true;
+//    }
     public void CheckEditTextStatus(){
 
         CantitateHolder = cantitate.getText().toString();

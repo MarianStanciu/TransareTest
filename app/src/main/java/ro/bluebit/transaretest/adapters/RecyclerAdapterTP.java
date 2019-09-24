@@ -1,6 +1,7 @@
 package ro.bluebit.transaretest.adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ro.bluebit.transaretest.R;
@@ -19,12 +21,14 @@ public class RecyclerAdapterTP extends RecyclerView.Adapter<RecyclerAdapterTP.Te
     Context context;
     int[] retCodIntPT;
     List<String> retDenumiriPT;
+    int[] retGreutate;
 
 
     public RecyclerAdapterTP(Context context, int[] retCodIntPT, List<String> retDenumiriPT) {
         this.context = context;
         this.retCodIntPT = retCodIntPT;
         this.retDenumiriPT = retDenumiriPT;
+
         //setHasStableIds(true); - id-uri stabile
     }
 
@@ -40,13 +44,15 @@ public class RecyclerAdapterTP extends RecyclerView.Adapter<RecyclerAdapterTP.Te
     @Override
     public void onBindViewHolder(@NonNull TextViewHolder holder, int position) {
 
+
         int retCodIntPT_id=retCodIntPT[position];
+
         String retDenumiriPT_id= retDenumiriPT.get(position);
-
         holder.afisareDenumirePT.setText(retDenumiriPT_id);
-
-
-
+//        holder.preiaGreutate.setText(retGreutate[position].getEditTextValue());
+// implementare text watcher pt a obtinr valorile introduse din edit text
+ //       Log.d("print","yes");
+        holder.preiaGreutate.getText();
 //        holder.denumireCodInt.setText(""+(retCodInt_id));
 //        holder.denumireSelectieImaginiTransare.setText(mDenumiriMateriiPrime_id);
     }
@@ -64,10 +70,11 @@ public class RecyclerAdapterTP extends RecyclerView.Adapter<RecyclerAdapterTP.Te
         List<String> retDenumiriPT;
 
 
+
         public TextViewHolder(@NonNull View itemView, Context context, int[] retCodIntPT, List<String> retDenumiriPT) {
             super(itemView);
             afisareDenumirePT =itemView.findViewById(R.id.rezultat_transare);
-            preiaGreutate =itemView.findViewById(R.id.greutate_introd_rezultat_transare);
+            preiaGreutate = itemView.findViewById(R.id.greutate_introd_rezultat_transare);
             this.context = context;
             this.retCodIntPT = retCodIntPT;
             this.retDenumiriPT = retDenumiriPT;
@@ -86,4 +93,31 @@ public class RecyclerAdapterTP extends RecyclerView.Adapter<RecyclerAdapterTP.Te
         return position;
     }
 
+    public class PreiaGreutateCodIntDenumire{
+        private String greutate, nume, cod;
+
+        public String getGreutate() {
+            return greutate;
+        }
+
+        public void setGreutate(String greutate) {
+            this.greutate = greutate;
+        }
+
+        public String getNume() {
+            return nume;
+        }
+
+        public void setNume(String nume) {
+            this.nume = nume;
+        }
+
+        public String getCod() {
+            return cod;
+        }
+
+        public void setCod(String cod) {
+            this.cod = cod;
+        }
+    }
 }

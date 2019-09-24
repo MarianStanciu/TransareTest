@@ -102,6 +102,8 @@ public class RecyclerAdapterSelectieTransare extends RecyclerView.Adapter<Recycl
                         Intent intentcdInt = new Intent(context, SelectieTransareProduseActivity.class);
                         intentcdInt.putExtra("retCodInt_id",retCodInt[getAdapterPosition()] );
                         intentcdInt.putExtra("denumire_id", mDenumiriMateriiPrime.get(position).toString());
+
+
                         context.startActivity(intentcdInt);
 //                        Toast.makeText(v.getContext(), "Ai selectat Cod INT : " +retCodInt[getAdapterPosition()], Toast.LENGTH_LONG).show();
 //                        Toast.makeText(v.getContext(), "Ai selectat: " + mDenumiriMateriiPrime.get(getAdapterPosition()), Toast.LENGTH_LONG).show();

@@ -131,6 +131,7 @@ public class Constructor {
         public static final String COL_2 = "id_antet_legatura";
         public static final String COL_3 = "nr_factura";
         public static final String COL_4 = "data_ora";
+        public static final String COL_5 = "greutate";
         // de introdus cant de mat prima ca si coloana
         //TABELA SERVER
         public static final String SNUME_TABEL = "antet_transare";
@@ -138,13 +139,15 @@ public class Constructor {
         public static final String SCOL_2 = "id_antet_legatura";
         public static final String SCOL_3 = "nr_factura";
         public static final String SCOL_4 = "data_ora";
+        public static final String SCOL_5 = "greutate";
         //SQL CREARE TABEL
         public static final String SQL_CREAZA_TABEL_ANTET_TRANSARE = ("create table if not exists " +
                 TabAntetTransare.NUME_TABEL + "(" +
                 TabAntetTransare.COL_1 + Tip.PRIMARY_AUTO + " , " +
                 TabAntetTransare.COL_2 + Tip.INTREG + " , " +
                 TabAntetTransare.COL_3 + Tip.TEXT + " , " +
-                TabAntetTransare.COL_4 + Tip.DATA + ")");
+                TabAntetTransare.COL_4 + Tip.DATA + " , " +
+                TabAntetTransare.COL_5 + Tip.VALOARE +  ")");
         //SQL SINCRONIZARE
         public static final String COL_SINCRO_SERVER =
                 TabAntetTransare.SCOL_1 + " , " +

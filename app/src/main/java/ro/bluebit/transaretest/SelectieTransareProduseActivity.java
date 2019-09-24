@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -33,6 +34,7 @@ public class SelectieTransareProduseActivity extends AppCompatActivity {
     DatabaseHelper myDb ;
     Context context;
     MenuItem butonsalvare;
+    String mSgreutateF, mSfacturaF;
 
 
     private RecyclerView.LayoutManager layoutManager;
@@ -54,6 +56,8 @@ public class SelectieTransareProduseActivity extends AppCompatActivity {
         codTV.setText(cod);
         String denumire=extras.getString("denumire_id");
         denTV.setText(denumire);
+
+
 
         myDb= new DatabaseHelper(this);
         SQLiteDatabase db =myDb.getReadableDatabase();
@@ -97,25 +101,6 @@ public class SelectieTransareProduseActivity extends AppCompatActivity {
         }
     }
 
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()) {
-//            case R.id.action_salvare:
-//                // User chose the "Settings" item, show the app settings UI...
-//                return true;
-//
-//           case R.id.action_favorite:
-//              // User chose the "Favorite" action, mark the current item
-//                // as a favorite...
-//               return true;
-//
-//            default:
-//                // If we got here, the user's action was not recognized.
-//                // Invoke the superclass to handle it.
-//                return super.onOptionsItemSelected(item);
-//
-//        }
-//    }
-
 
 
 
@@ -138,6 +123,13 @@ public boolean onCreateOptionsMenu(Menu menu) {
 
         if (id == R.id.action_salvare) {
             // insert inregistrare pt antet_transare
+            SQLiteDatabase db = myDb.getWritableDatabase();
+            db.beginTransaction();
+
+            String sqlSir= "insert into " + Constructor.TabAntetTransare.NUME_TABEL +"."+ (Constructor.TabAntetTransare.COL_2  )+ " values " + (codTV);
+            db.execSQL(sqlSir);
+            db.setTransactionSuccessful();
+            db.endTransaction();
 
 //            Intent intent = new Intent(SelectieTransareProduseActivity.this, VioricaPresedinte.class);
 //            SelectieTransareProduseActivity.this.startActivity(intent);
@@ -185,3 +177,22 @@ public boolean onCreateOptionsMenu(Menu menu) {
 //
 //        String s = ClassC.sharedValue;   //get value
 
+
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        switch (item.getItemId()) {
+//            case R.id.action_salvare:
+//                // User chose the "Settings" item, show the app settings UI...
+//                return true;
+//
+//           case R.id.action_favorite:
+//              // User chose the "Favorite" action, mark the current item
+//                // as a favorite...
+//               return true;
+//
+//            default:
+//                // If we got here, the user's action was not recognized.
+//                // Invoke the superclass to handle it.
+//                return super.onOptionsItemSelected(item);
+//
+//        }
+//    }

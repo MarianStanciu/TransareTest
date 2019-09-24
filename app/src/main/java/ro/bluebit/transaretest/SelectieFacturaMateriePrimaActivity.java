@@ -1,7 +1,9 @@
 package ro.bluebit.transaretest;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -16,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import ro.bluebit.transaretest.adapters.RecyclerAdapterSelectieTransare;
+import ro.bluebit.transaretest.database.Constructor;
 import ro.bluebit.transaretest.database.DatabaseHelper;
 import ro.bluebit.transaretest.utilitare.ItemDecorator;
 
@@ -25,7 +28,8 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity imple
 
     private RecyclerView recyclerView;
     DatabaseHelper myDb ;
-
+    String sgreutate, sfactura;
+    EditText cantitate, factura;
     //private int [] images ={ R.drawable.porc, R.drawable.vaca, R.drawable.oaie,R.drawable.curcan};
 //    SQLiteDatabase db =myDb.getReadableDatabase();
 //    List<String> mDenumiriMateriiPrime = Logica.getDenumiri(db)  ;
@@ -45,6 +49,12 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity imple
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selectie_factura_materie_prima);
+
+        cantitate=findViewById(R.id.edittext_greutateTotala);
+        sgreutate=String.valueOf(cantitate);
+        factura=findViewById(R.id.edittext_NrFactura);
+        sfactura=String.valueOf(factura);
+
         myDb= new DatabaseHelper(this);
         SQLiteDatabase db =myDb.getReadableDatabase();
         List<String> mDenumiriMateriiPrime = Logica.getDenumiri(db)  ;
@@ -62,13 +72,28 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity imple
 
     }
 
+    public boolean insertGreutateFactura (String greutate, String factura){
+        SQLiteDatabase db =myDb.getWritableDatabase();
+        ContentValues cval = new ContentValues();
+        cval.put(Constructor.TabAntetTransare.COL_5, greutate);
+        cval.put(Constructor.TabAntetTransare.COL_3, factura);
+        long result = db.insert(Constructor.TabAntetTransare.NUME_TABEL, null, cval);
+        if (result==-1)
+            return false;
+        else
+            return true;
+    }
+
+
+
 
 
     @Override
     public void OnSelctieMPFacturaClick(int position) {
 //        Toast.makeText(this,"Ai selectat fotografia " +(position) , Toast.LENGTH_SHORT).show();
-//        Intent intentDeschideTransareProduse = new Intent(this,  SelectieTransareProduseActivity.class);
-//        intentDeschideTransareProduse.getIntExtra("retCodInt_id ",retCodInt[getAdapterPosition()]) ;
+//          Intent intentDeschideTransareProduse = new Intent(this,  SelectieTransareProduseActivity.class);
+//          intentDeschideTransareProduse.putExtra("cantitate ", Integer.parseInt(String.valueOf(cantitate))) ;
+//          intentDeschideTransareProduse.putExtra("factura ", String.valueOf(factura)) ;
 //        startActivity(intentDeschideTransareProduse);
 
     }

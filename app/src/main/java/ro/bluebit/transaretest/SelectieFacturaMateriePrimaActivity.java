@@ -3,13 +3,14 @@ package ro.bluebit.transaretest;
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -30,6 +31,8 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity imple
     DatabaseHelper myDb ;
     String sgreutate, sfactura;
     EditText cantitate, factura;
+    Boolean EditTextEmptyHold;
+    String CantitateHolder, FacturaHolder;
     //private int [] images ={ R.drawable.porc, R.drawable.vaca, R.drawable.oaie,R.drawable.curcan};
 //    SQLiteDatabase db =myDb.getReadableDatabase();
 //    List<String> mDenumiriMateriiPrime = Logica.getDenumiri(db)  ;
@@ -68,22 +71,64 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity imple
         recyclerView.addItemDecoration(peVerctivala);
         recyclerAdapterSelectieTransare = new RecyclerAdapterSelectieTransare(images,mDenumiriMateriiPrime,retCodInt, this, this);
         recyclerView.setAdapter(recyclerAdapterSelectieTransare);
+        CheckEditTextStatus();
 //        recyclerView.setOverScrollMode(View.OVER_SCROLL_IF_CONTENT_SCROLLS);
 
     }
+//    public static void insertgreutatefact(sfactura, sgreutate) {
+//        String sqlSirGreutateFact = "Insert into " + Constructor.TabAntetTransare.NUME_TABEL + "." + (Constructor.TabAntetTransare.COL_5 + "," + Constructor.TabAntetTransare.COL_3)
+//                + " values " + (sgreutate + sfactura);
+//    }
 
-    public boolean insertGreutateFactura (String greutate, String factura){
+    public boolean insertGreutateFactura(){
         SQLiteDatabase db =myDb.getWritableDatabase();
         ContentValues cval = new ContentValues();
-        cval.put(Constructor.TabAntetTransare.COL_5, greutate);
-        cval.put(Constructor.TabAntetTransare.COL_3, factura);
+        cval.put(Constructor.TabAntetTransare.COL_5, sgreutate);
+        cval.put(Constructor.TabAntetTransare.COL_3, sfactura);
         long result = db.insert(Constructor.TabAntetTransare.NUME_TABEL, null, cval);
         if (result==-1)
             return false;
         else
             return true;
     }
+    public void CheckEditTextStatus(){
 
+        CantitateHolder = cantitate.getText().toString();
+        FacturaHolder = factura.getText().toString();
+
+
+        if(TextUtils.isEmpty(CantitateHolder) || TextUtils.isEmpty(FacturaHolder)){
+
+            EditTextEmptyHold = false ;
+            recyclerView.setFocusable(false);
+        }
+        else {
+
+            EditTextEmptyHold = true ;
+            recyclerView.setFocusable(true);
+            Toast.makeText(SelectieFacturaMateriePrimaActivity.this,"Completeaza campurile", Toast.LENGTH_LONG).show();
+        }
+    }
+//    public void AcceseazaRecyclerView(){
+//
+//        if(EditTextEmptyHold == true)
+//        {
+//        recyclerView.setFocusable(EditTextEmptyHold);
+//
+//
+//
+//
+//
+//            //Toast.makeText(MainActivity.this,"Data Inserted Successfully", Toast.LENGTH_LONG).show();
+//
+//        }
+//        else {
+//            recyclerView.setFocusable(EditTextEmptyHold);
+//            Toast.makeText(SelectieFacturaMateriePrimaActivity.this,"Completeaza campurile", Toast.LENGTH_LONG).show();
+//
+//        }
+//
+//    }
 
 
 

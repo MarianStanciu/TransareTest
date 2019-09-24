@@ -1,12 +1,9 @@
 package ro.bluebit.transaretest;
 
 import android.app.Activity;
-import android.content.ContentValues;
 import android.content.Context;
-import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -14,9 +11,9 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.view.menu.MenuView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -126,11 +123,19 @@ public boolean onCreateOptionsMenu(Menu menu) {
             SQLiteDatabase db = myDb.getWritableDatabase();
             db.beginTransaction();
 
-            String sqlSir= "insert into " + Constructor.TabAntetTransare.NUME_TABEL +"."+ (Constructor.TabAntetTransare.COL_2  )+ " values " + (codTV);
+            String sqlSir= "insert into " + Constructor.TabAntetTransare.NUME_TABEL +Constructor.TabAntetTransare.COL_2  + " values " + (codTV.getText().toString());
             db.execSQL(sqlSir);
+            SelectieFacturaMateriePrimaActivity abc = new SelectieFacturaMateriePrimaActivity();
+            boolean isInserted = abc.insertGreutateFactura();
+            if (isInserted == true)
+                Toast.makeText(this, "Totmesajjj", Toast.LENGTH_SHORT).show();
+            else
+                Toast.makeText(this, "Dedataastanimic", Toast.LENGTH_SHORT).show();
             db.setTransactionSuccessful();
             db.endTransaction();
 
+//            Class2 cls2 = new Class2();
+//            cls2.UpdateEmployee();
 //            Intent intent = new Intent(SelectieTransareProduseActivity.this, VioricaPresedinte.class);
 //            SelectieTransareProduseActivity.this.startActivity(intent);
             // creareare obiect baza de date

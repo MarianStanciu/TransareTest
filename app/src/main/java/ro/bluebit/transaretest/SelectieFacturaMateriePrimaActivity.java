@@ -93,6 +93,7 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity imple
     }
 
     public String getGreutate() {
+
         return greutate;
     }
 
@@ -110,7 +111,6 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity imple
         trimiteEditTextGFS.add(member);
         return trimiteEditTextGFS;
             }
-
 
 
 

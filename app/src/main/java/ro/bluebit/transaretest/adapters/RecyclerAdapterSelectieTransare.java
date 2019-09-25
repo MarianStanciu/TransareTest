@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import ro.bluebit.transaretest.R;
+import ro.bluebit.transaretest.SelectieFacturaMateriePrimaActivity;
 import ro.bluebit.transaretest.SelectieTransareProduseActivity;
 
 public class RecyclerAdapterSelectieTransare extends RecyclerView.Adapter<RecyclerAdapterSelectieTransare.ImageViewHolder> {
@@ -102,7 +103,7 @@ public class RecyclerAdapterSelectieTransare extends RecyclerView.Adapter<Recycl
                         Intent intentcdInt = new Intent(context, SelectieTransareProduseActivity.class);
                         intentcdInt.putExtra("retCodInt_id",retCodInt[getAdapterPosition()] );
                         intentcdInt.putExtra("denumire_id", mDenumiriMateriiPrime.get(position).toString());
-
+                        SelectieFacturaMateriePrimaActivity aaa = (SelectieFacturaMateriePrimaActivity) context;
 
                         context.startActivity(intentcdInt);
 //                        Toast.makeText(v.getContext(), "Ai selectat Cod INT : " +retCodInt[getAdapterPosition()], Toast.LENGTH_LONG).show();

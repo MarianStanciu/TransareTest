@@ -60,8 +60,14 @@ public class SelectieTransareProduseActivity extends AppCompatActivity {
         myDb= new DatabaseHelper(this);
         SQLiteDatabase db =myDb.getReadableDatabase();
         List<String> retDenumiriPT = Logica.getDenumiriPT(db,codCod)  ;
-        SelectieFacturaMateriePrimaActivity abc = new SelectieFacturaMateriePrimaActivity();
-        List<SelectieFacturaMateriePrimaActivity.TrimiteEditTextGF> trimiteEditTextGFS = abc.getGF(mSfacturaF, mSgreutateF);
+
+//        SelectieFacturaMateriePrimaActivity abc = new SelectieFacturaMateriePrimaActivity();
+        SelectieFacturaMateriePrimaActivity.TrimiteEditTextGF aaa = new SelectieFacturaMateriePrimaActivity.TrimiteEditTextGF();
+        mSgreutateF=aaa.getGreutate();
+
+        mSfacturaF=aaa.getFactura();
+
+//        List<SelectieFacturaMateriePrimaActivity.TrimiteEditTextGF> trimiteEditTextGFS = abc.getGF(mSfacturaF, mSgreutateF);
         int [] retCodIntPT=Logica.getCodIntPT(db,codCod);
         recyclerView=findViewById(R.id.recyclerviewTP);
         layoutManager = new GridLayoutManager(this, 2);

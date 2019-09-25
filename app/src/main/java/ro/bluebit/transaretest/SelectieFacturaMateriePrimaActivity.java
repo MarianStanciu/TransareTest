@@ -80,7 +80,7 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity imple
 //        String sqlSirGreutateFact = "Insert into " + Constructor.TabAntetTransare.NUME_TABEL + "." + (Constructor.TabAntetTransare.COL_5 + "," + Constructor.TabAntetTransare.COL_3)
 //                + " values " + (sgreutate + sfactura);
 //    }
-    public class TrimiteEditTextGF{
+    public static class TrimiteEditTextGF{
        private String greutate;
        private String factura;
 

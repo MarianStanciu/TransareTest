@@ -104,7 +104,7 @@ public class RecyclerAdapterSelectieTransare extends RecyclerView.Adapter<Recycl
                         intentcdInt.putExtra("retCodInt_id",retCodInt[getAdapterPosition()] );
                         intentcdInt.putExtra("denumire_id", mDenumiriMateriiPrime.get(position).toString());
                         SelectieFacturaMateriePrimaActivity aaa = (SelectieFacturaMateriePrimaActivity) context;
-                        aaa.getGreutate();
+                        String cGreutate=aaa.getGreutate();
 
                         context.startActivity(intentcdInt);
 //                        Toast.makeText(v.getContext(), "Ai selectat Cod INT : " +retCodInt[getAdapterPosition()], Toast.LENGTH_LONG).show();

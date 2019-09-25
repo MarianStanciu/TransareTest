@@ -30,10 +30,6 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity imple
 
     private RecyclerView recyclerView;
     DatabaseHelper myDb ;
-    String sgreutate, sfactura;
-    EditText cantitate, factura;
-    Boolean EditTextEmptyHold;
-    String CantitateHolder, FacturaHolder;
     //private int [] images ={ R.drawable.porc, R.drawable.vaca, R.drawable.oaie,R.drawable.curcan};
 //    SQLiteDatabase db =myDb.getReadableDatabase();
 //    List<String> mDenumiriMateriiPrime = Logica.getDenumiri(db)  ;
@@ -53,9 +49,6 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity imple
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selectie_factura_materie_prima);
-
-        factura=findViewById(R.id.edittext_NrFactura);
-        sfactura=String.valueOf(factura);
 
         myDb= new DatabaseHelper(this);
         SQLiteDatabase db =myDb.getReadableDatabase();
@@ -87,33 +80,6 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity imple
 }
 
 
-    public static class TrimiteEditTextGF{
-       private String greutate;
-       private String factura;
-
-    public String getFactura() {
-        return factura;
-    }
-
-    public void setFactura(String factura) {
-        this.factura = factura;
-    }
-
-
-    public void setGreutate(String greutate) {
-        this.greutate = greutate;
-    }
-}
-
-    public List<TrimiteEditTextGF> getGF(String cantitate, String factura) {
-        List<TrimiteEditTextGF> trimiteEditTextGFS = new ArrayList<TrimiteEditTextGF>();
-        TrimiteEditTextGF member = new TrimiteEditTextGF();
-
-                    member.setGreutate(cantitate);
-                    member.setFactura(factura);
-        trimiteEditTextGFS.add(member);
-        return trimiteEditTextGFS;
-            }
 
 
 
@@ -130,22 +96,17 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity imple
 //            return true;
 //    }
     public void CheckEditTextStatus(){
-
-        CantitateHolder = cantitate.getText().toString();
-        FacturaHolder = factura.getText().toString();
-
-
-        if(TextUtils.isEmpty(CantitateHolder) || TextUtils.isEmpty(FacturaHolder)){
-
-            EditTextEmptyHold = false ;
-            recyclerView.setFocusable(false);
-        }
-        else {
-
-            EditTextEmptyHold = true ;
-            recyclerView.setFocusable(true);
-            Toast.makeText(SelectieFacturaMateriePrimaActivity.this,"Completeaza campurile", Toast.LENGTH_LONG).show();
-        }
+//        if(TextUtils.isEmpty(CantitateHolder) || TextUtils.isEmpty(FacturaHolder)){
+//
+//            EditTextEmptyHold = false ;
+//            recyclerView.setFocusable(false);
+//        }
+//        else {
+//
+//            EditTextEmptyHold = true ;
+//            recyclerView.setFocusable(true);
+//            Toast.makeText(SelectieFacturaMateriePrimaActivity.this,"Completeaza campurile", Toast.LENGTH_LONG).show();
+//        }
     }
 //    public void AcceseazaRecyclerView(){
 //

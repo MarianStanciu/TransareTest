@@ -62,10 +62,7 @@ public class SelectieTransareProduseActivity extends AppCompatActivity {
         List<String> retDenumiriPT = Logica.getDenumiriPT(db,codCod)  ;
 
 //        SelectieFacturaMateriePrimaActivity abc = new SelectieFacturaMateriePrimaActivity();
-        SelectieFacturaMateriePrimaActivity.TrimiteEditTextGF aaa = new SelectieFacturaMateriePrimaActivity.TrimiteEditTextGF();
-        mSgreutateF=aaa.getGreutate();
-
-        mSfacturaF=aaa.getFactura();
+//        SelectieFacturaMateriePrimaActivity.TrimiteEditTextGF aaa = new SelectieFacturaMateriePrimaActivity.TrimiteEditTextGF();
 
 //        List<SelectieFacturaMateriePrimaActivity.TrimiteEditTextGF> trimiteEditTextGFS = abc.getGF(mSfacturaF, mSgreutateF);
         int [] retCodIntPT=Logica.getCodIntPT(db,codCod);

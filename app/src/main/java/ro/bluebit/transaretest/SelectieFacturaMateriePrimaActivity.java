@@ -1,26 +1,21 @@
 package ro.bluebit.transaretest;
 
 import android.app.Activity;
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import ro.bluebit.transaretest.adapters.RecyclerAdapterSelectieTransare;
-import ro.bluebit.transaretest.database.Constructor;
 import ro.bluebit.transaretest.database.DatabaseHelper;
 import ro.bluebit.transaretest.utilitare.ItemDecorator;
 
@@ -63,7 +58,7 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity imple
         recyclerView.addItemDecoration(peVerctivala);
         recyclerAdapterSelectieTransare = new RecyclerAdapterSelectieTransare(images,mDenumiriMateriiPrime,retCodInt, this, this);
         recyclerView.setAdapter(recyclerAdapterSelectieTransare);
-        CheckEditTextStatus();
+
 //        recyclerView.setOverScrollMode(View.OVER_SCROLL_IF_CONTENT_SCROLLS);
 
     }
@@ -97,19 +92,7 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity imple
 //        else
 //            return true;
 //    }
-    public void CheckEditTextStatus(){
-//        if(TextUtils.isEmpty(CantitateHolder) || TextUtils.isEmpty(FacturaHolder)){
-//
-//            EditTextEmptyHold = false ;
-//            recyclerView.setFocusable(false);
-//        }
-//        else {
-//
-//            EditTextEmptyHold = true ;
-//            recyclerView.setFocusable(true);
-//            Toast.makeText(SelectieFacturaMateriePrimaActivity.this,"Completeaza campurile", Toast.LENGTH_LONG).show();
-//        }
-    }
+
 //    public void AcceseazaRecyclerView(){
 //
 //        if(EditTextEmptyHold == true)

@@ -3,6 +3,7 @@ package ro.bluebit.transaretest;
 import android.app.Activity;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteStatement;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,7 +12,6 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -136,15 +136,24 @@ public boolean onCreateOptionsMenu(Menu menu) {
             SQLiteDatabase db = myDb.getWritableDatabase();
             db.beginTransaction();
 
-            String sqlSir= "insert into " + Constructor.TabAntetTransare.NUME_TABEL +"("+Constructor.TabAntetTransare.COL_2+","+Constructor.TabAntetTransare.COL_5+","+Constructor.TabAntetTransare.COL_3 +")"+ " values " + "("+(codTV.getText().toString())+","+ mSgreutateF+ ","+mSfacturaF +")";
+            String sqlSir= "insert into " + Constructor.TabAntetTransare.NUME_TABEL +"("+Constructor.TabAntetTransare.COL_2+","+Constructor.TabAntetTransare.COL_5+","
+                    +Constructor.TabAntetTransare.COL_3 +")"+ " values " + "("+(codTV.getText().toString())+","+ mSgreutateF+ ","+mSfacturaF +")";
             db.execSQL(sqlSir);
 
 
             db.setTransactionSuccessful();
             db.endTransaction();
 
-//            Class2 cls2 = new Class2();
-//            cls2.UpdateEmployee();
+            //interogare baza de date pentru id antet transare
+
+
+             db.beginTransaction();
+
+
+
+                    //String sql = "Insert into " + AUTOCOMPLETE_TABLE + " (path, name, course_id, " +
+            //                "course_id_norm, type, year) values(?,?,?,?,?,?)";
+//
 //            Intent intent = new Intent(SelectieTransareProduseActivity.this, VioricaPresedinte.class);
 //            SelectieTransareProduseActivity.this.startActivity(intent);
             // creareare obiect baza de date
@@ -159,12 +168,32 @@ public boolean onCreateOptionsMenu(Menu menu) {
 
                 RecyclerView.ViewHolder holder = recyclerView.getChildViewHolder(view);
                 RecyclerAdapterTP.TextViewHolder v = ((RecyclerAdapterTP.TextViewHolder) holder) ;
+                String sTransare = Constructor.SQL_QUERY_OBTI_ID_TRANSARE;
+                db.execSQL(sTransare);
+                String sql = "Insert into "+ Constructor.TabPozitiiTransare.NUME_TABEL+ "("+Constructor.TabPozitiiTransare.COL_3+","
+                        +Constructor.TabPozitiiTransare.COL_5+")"+ "values" + "("+"?"+","+"sTransare"+")";
+                SQLiteStatement insert = db.compileStatement(sql);
+                insert.bindString(1,Constructor.TabPozitiiTransare.COL_3);
+                insert.execute();
+                db.setTransactionSuccessful();
+                db.endTransaction();
+//
+//
 //                https://stackoverflow.com/questions/10184282/android-inserting-thousands-of-rows-to-sqlite
                 //insert.bindString(1, <valoarea> );
 
-//                ContentValues cval = new ContentValues();
-//                cval.put(Constructor.TabPozitiiTransare.COL_3,
-//                        Double.valueOf(v.preiaGreutate.getText().toString()));
+
+//
+//                for (KeywordMap keyword : keywords) {
+//                    insert.bindString(1, keyword.path);
+//                    insert.bindString(2, keyword.name);
+//                    insert.bindString(3, keyword.cid);
+//                    insert.bindString(4, keyword.cid_norm);
+//                    insert.bindDouble(5, keyword.type);
+//                    insert.bindDouble(6, keyword.year);
+//
+//                    insert.execute();
+//                }
 
 
             }

@@ -54,8 +54,6 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity imple
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selectie_factura_materie_prima);
 
-        cantitate=findViewById(R.id.edittext_greutateTotala);
-        sgreutate=String.valueOf(cantitate);
         factura=findViewById(R.id.edittext_NrFactura);
         sfactura=String.valueOf(factura);
 
@@ -80,6 +78,15 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity imple
 //        String sqlSirGreutateFact = "Insert into " + Constructor.TabAntetTransare.NUME_TABEL + "." + (Constructor.TabAntetTransare.COL_5 + "," + Constructor.TabAntetTransare.COL_3)
 //                + " values " + (sgreutate + sfactura);
 //    }
+
+    public String getGreutate() {
+//        cantitate=findViewById(R.id.edittext_greutateTotala);
+//        sgreutate=String.valueOf(cantitate);
+
+        return  ((EditText) findViewById(R.id.edittext_greutateTotala)).getText().toString();
+}
+
+
     public static class TrimiteEditTextGF{
        private String greutate;
        private String factura;
@@ -92,10 +99,6 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity imple
         this.factura = factura;
     }
 
-    public String getGreutate() {
-
-        return greutate;
-    }
 
     public void setGreutate(String greutate) {
         this.greutate = greutate;

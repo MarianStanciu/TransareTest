@@ -53,6 +53,8 @@ public class SelectieTransareProduseActivity extends AppCompatActivity {
         codTV.setText(cod);
         String denumire=extras.getString("denumire_id");
         denTV.setText(denumire);
+        mSgreutateF=extras.getString("greutate");
+        mSfacturaF=extras.getString("factura");
 
 
 
@@ -134,9 +136,7 @@ public boolean onCreateOptionsMenu(Menu menu) {
             SQLiteDatabase db = myDb.getWritableDatabase();
             db.beginTransaction();
 
-            String sqlSir= "insert into " + Constructor.TabAntetTransare.NUME_TABEL +Constructor.TabAntetTransare.COL_2+Constructor.TabAntetTransare.COL_5+Constructor.TabAntetTransare.COL_3
-                    + " values " +
-                    (codTV.getText().toString())+ mSgreutateF +mSfacturaF;
+            String sqlSir= "insert into " + Constructor.TabAntetTransare.NUME_TABEL +"("+Constructor.TabAntetTransare.COL_2+","+Constructor.TabAntetTransare.COL_5+","+Constructor.TabAntetTransare.COL_3 +")"+ " values " + "("+(codTV.getText().toString())+","+ mSgreutateF+ ","+mSfacturaF +")";
             db.execSQL(sqlSir);
 
 

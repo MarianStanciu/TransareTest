@@ -36,7 +36,7 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity imple
 //                                    { "PORC",
 //                                        "VACA",
 //                                        "OAIE",
-//                                        "CURCAN"
+//                                         "CURCAN"
 //                                        };
 
 
@@ -79,7 +79,9 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity imple
         return  ((EditText) findViewById(R.id.edittext_greutateTotala)).getText().toString();
 }
 
-
+    public String getFactura(){
+        return  ((EditText) findViewById(R.id.edittext_NrFactura)).getText().toString();
+    }
 
 
 

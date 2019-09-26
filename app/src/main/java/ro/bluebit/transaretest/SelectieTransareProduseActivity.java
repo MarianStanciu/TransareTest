@@ -1,9 +1,9 @@
 package ro.bluebit.transaretest;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteStatement;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -63,10 +63,6 @@ public class SelectieTransareProduseActivity extends AppCompatActivity {
         SQLiteDatabase db =myDb.getReadableDatabase();
         List<String> retDenumiriPT = Logica.getDenumiriPT(db,codCod)  ;
 
-//        SelectieFacturaMateriePrimaActivity abc = new SelectieFacturaMateriePrimaActivity();
-//        SelectieFacturaMateriePrimaActivity.TrimiteEditTextGF aaa = new SelectieFacturaMateriePrimaActivity.TrimiteEditTextGF();
-
-//        List<SelectieFacturaMateriePrimaActivity.TrimiteEditTextGF> trimiteEditTextGFS = abc.getGF(mSfacturaF, mSgreutateF);
         int [] retCodIntPT=Logica.getCodIntPT(db,codCod);
         recyclerView=findViewById(R.id.recyclerviewTP);
         layoutManager = new GridLayoutManager(this, 2);
@@ -136,9 +132,12 @@ public boolean onCreateOptionsMenu(Menu menu) {
             SQLiteDatabase db = myDb.getWritableDatabase();
             db.beginTransaction();
 
-            String sqlSir= "insert into " + Constructor.TabAntetTransare.NUME_TABEL +"("+Constructor.TabAntetTransare.COL_2+","+Constructor.TabAntetTransare.COL_5+","
-                    +Constructor.TabAntetTransare.COL_3 +")"+ " values " + "("+(codTV.getText().toString())+","+ mSgreutateF+ ","+mSfacturaF +")";
-            db.execSQL(sqlSir);
+            ContentValues cValAT = new ContentValues();
+            cValAT.put(Constructor.TabAntetTransare.COL_3,mSfacturaF);
+            cValAT.put(Constructor.TabAntetTransare.COL_5,mSgreutateF);
+            cValAT.put(Constructor.TabAntetTransare.COL_2,codTV.getText().toString());
+            long nid = db.insert(Constructor.TabAntetTransare.NUME_TABEL,null,cValAT);
+
 
 
             db.setTransactionSuccessful();
@@ -168,13 +167,21 @@ public boolean onCreateOptionsMenu(Menu menu) {
 
                 RecyclerView.ViewHolder holder = recyclerView.getChildViewHolder(view);
                 RecyclerAdapterTP.TextViewHolder v = ((RecyclerAdapterTP.TextViewHolder) holder) ;
-                String sTransare = Constructor.SQL_QUERY_OBTI_ID_TRANSARE;
-                db.execSQL(sTransare);
-                String sql = "Insert into "+ Constructor.TabPozitiiTransare.NUME_TABEL+ "("+Constructor.TabPozitiiTransare.COL_3+","
-                        +Constructor.TabPozitiiTransare.COL_5+")"+ "values" + "("+"?"+","+"sTransare"+")";
-                SQLiteStatement insert = db.compileStatement(sql);
-                insert.bindString(1,Constructor.TabPozitiiTransare.COL_3);
-                insert.execute();
+                String sGreutateS = v.preiaGreutate.getText().toString();
+                Double vGreutateS = Double.parseDouble(sGreutateS);
+
+
+
+
+
+
+
+                ContentValues cValPT = new ContentValues();
+                cValPT.put(Constructor.TabPozitiiTransare.COL_2,nid);
+                cValPT.put(Constructor.TabPozitiiTransare.COL_3,vGreutateS);
+                cValPT.put(Constructor.TabPozitiiTransare.COL_4,);
+
+
                 db.setTransactionSuccessful();
                 db.endTransaction();
 //

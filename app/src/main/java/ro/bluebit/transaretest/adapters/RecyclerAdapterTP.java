@@ -1,7 +1,6 @@
 package ro.bluebit.transaretest.adapters;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +10,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import ro.bluebit.transaretest.R;
@@ -21,7 +19,7 @@ public class RecyclerAdapterTP extends RecyclerView.Adapter<RecyclerAdapterTP.Te
     Context context;
     int[] retCodIntPT;
     List<String> retDenumiriPT;
-    int[] retGreutate;
+
 
 
     public RecyclerAdapterTP(Context context, int[] retCodIntPT, List<String> retDenumiriPT) {
@@ -45,10 +43,10 @@ public class RecyclerAdapterTP extends RecyclerView.Adapter<RecyclerAdapterTP.Te
     public void onBindViewHolder(@NonNull TextViewHolder holder, int position) {
 
 
-        int retCodIntPT_id=retCodIntPT[position];
-
-        String retDenumiriPT_id= retDenumiriPT.get(position);
-        holder.afisareDenumirePT.setText(retDenumiriPT_id);
+        //int retCodIntPT_id=retCodIntPT[position];
+        holder.afisareDenumirePT.setTag(1,retCodIntPT[position]);
+        //String retDenumiriPT_id= retDenumiriPT.get(position);
+        holder.afisareDenumirePT.setText(retDenumiriPT.get(position));
 //        holder.preiaGreutate.setText(retGreutate[position].getEditTextValue());
 // implementare text watcher pt a obtinr valorile introduse din edit text
  //       Log.d("print","yes");

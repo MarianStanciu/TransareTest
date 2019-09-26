@@ -243,10 +243,6 @@ public class Constructor {
             "SELECT "+ TabArticole.COL_2+ " FROM " +TabArticole.NUME_TABEL+ " WHERE " + TabArticole.COL_4 + "=1"
     );
 
-    public static final String SQL_QUERY_OBTI_ID_TRANSARE = (
-            "SELECT " +Constructor.TabAntetTransare.COL_1+ " FROM " +Constructor.TabAntetTransare.NUME_TABEL+" WHERE "+
-                    Constructor.TabAntetTransare.COL_2+ "=codTV.getText().toString()"
-            );
 
 
 

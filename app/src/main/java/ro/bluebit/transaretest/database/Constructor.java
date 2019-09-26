@@ -162,10 +162,9 @@ public class Constructor {
         //TABELA LOCALA
         public static final String NUME_TABEL = "pozitii_transare";
         public static final String COL_1 = "_id";
-        public static final String COL_2 = "id_pozitii_transare"; // de anulat- de modificat in id_antet_transare(Marian)
+        public static final String COL_2 = "id_antet_transare"; // de anulat- de modificat in id_antet_transare(Marian)
         public static final String COL_3 = "cantitate";
         public static final String COL_4 = "id_pozitii_legatura";
-        public static final String COL_5 = "Id_antet_transare";
         //TABELA SERVER
         public static final String SNUME_TABEL = "pozitii_transare";
         public static final String SCOL_1 = "_id";
@@ -179,8 +178,7 @@ public class Constructor {
                 TabPozitiiTransare.COL_1 + Tip.PRIMARY_AUTO + " , " +
                 TabPozitiiTransare.COL_2 + Tip.INTREG + " , " +
                 TabPozitiiTransare.COL_3 + Tip.VALOARE + " , " +
-                TabPozitiiTransare.COL_4 + Tip.INTREG + " , " +
-                TabPozitiiTransare.COL_5 + Tip.INTREG + ")");
+                TabPozitiiTransare.COL_4 + Tip.INTREG +")");
         //SQL SINCRONIZARE
         public static final String COL_SINCRO_SERVER =
                 TabPozitiiTransare.SCOL_1 + " , " +

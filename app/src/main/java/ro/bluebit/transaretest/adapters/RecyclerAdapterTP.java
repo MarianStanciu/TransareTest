@@ -43,7 +43,7 @@ public class RecyclerAdapterTP extends RecyclerView.Adapter<RecyclerAdapterTP.Te
     public void onBindViewHolder(@NonNull TextViewHolder holder, int position) {
 
 
-        //int retCodIntPT_id=retCodIntPT[position];
+        int retCodIntPT_id=retCodIntPT[position];
         holder.afisareDenumirePT.setTag(R.string.tagRezultateTransare,retCodIntPT[position]);
         //String retDenumiriPT_id= retDenumiriPT.get(position);
         holder.afisareDenumirePT.setText(retDenumiriPT.get(position));

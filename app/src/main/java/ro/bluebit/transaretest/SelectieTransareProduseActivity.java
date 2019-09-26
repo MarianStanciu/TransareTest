@@ -134,80 +134,31 @@ public boolean onCreateOptionsMenu(Menu menu) {
             // insert inregistrare pt antet_transare
             SQLiteDatabase db = myDb.getWritableDatabase();
             db.beginTransaction();
-
             ContentValues cValAT = new ContentValues();
             cValAT.put(Constructor.TabAntetTransare.COL_3,mSfacturaF);
             cValAT.put(Constructor.TabAntetTransare.COL_5,mSgreutateF);
-            cValAT.put(Constructor.TabAntetTransare.COL_2,codTV.getText().toString());
+            cValAT.put(Constructor.TabAntetTransare.COL_2,codTV.getText().toString()); // aici trebuie cod_int din antet_legaturi corespunzator idului de mat prima
             long nid = db.insert(Constructor.TabAntetTransare.NUME_TABEL,null,cValAT);
-
-            db.setTransactionSuccessful();
-            db.endTransaction();
-
-            //interogare baza de date pentru id antet transare
-
-
-
-
-
-
-                    //String sql = "Insert into " + AUTOCOMPLETE_TABLE + " (path, name, course_id, " +
-            //                "course_id_norm, type, year) values(?,?,?,?,?,?)";
-//
-//            Intent intent = new Intent(SelectieTransareProduseActivity.this, VioricaPresedinte.class);
-//            SelectieTransareProduseActivity.this.startActivity(intent);
-            // creareare obiect baza de date
-            // mDb.beginTransaction();
-            // insert inregistrare pt antet_transare
-            // mDb.setTransactionSuccessful();
-
-            // se creeaza insert pe model sql cu ? in loc de valori
-            // SQLiteStatement insert = mDb.compileStatement(sql);
             for ( int i =0 , n= recyclerView.getChildCount(); i<n; i++){
                 View view = recyclerView.getChildAt(i);
 
                 RecyclerView.ViewHolder holder = recyclerView.getChildViewHolder(view);
                 RecyclerAdapterTP.TextViewHolder v = ((RecyclerAdapterTP.TextViewHolder) holder) ;
                 String sGreutateS = v.preiaGreutate.getText().toString();
-                Double vGreutateS = Double.parseDouble(sGreutateS);
+                if(!sGreutateS.isEmpty()) {
+                    Double vGreutateS = Double.parseDouble(sGreutateS);
 
-
-
-
-
-
-                db.beginTransaction();
-                ContentValues cValPT = new ContentValues();
-                cValPT.put(Constructor.TabPozitiiTransare.COL_2,nid);
-                cValPT.put(Constructor.TabPozitiiTransare.COL_3,vGreutateS);
-                cValPT.put(Constructor.TabPozitiiTransare.COL_4,Integer.parseInt(v.afisareDenumirePT.getTag(R.string.tagRezultateTransare).toString()));
-                cValAT.put(Constructor.TabPozitiiTransare.COL_5,codTV.getText().toString());
-                long ffinal=db.insert(Constructor.TabPozitiiTransare.NUME_TABEL,null,cValPT);
-
-                db.setTransactionSuccessful();
-                db.endTransaction();
-                Toast.makeText(this, "Ai  inserat in Baza de date :"+ffinal, Toast.LENGTH_SHORT).show();
-//
-//                https://stackoverflow.com/questions/10184282/android-inserting-thousands-of-rows-to-sqlite
-                //insert.bindString(1, <valoarea> );
-
-
-//
-//                for (KeywordMap keyword : keywords) {
-//                    insert.bindString(1, keyword.path);
-//                    insert.bindString(2, keyword.name);
-//                    insert.bindString(3, keyword.cid);
-//                    insert.bindString(4, keyword.cid_norm);
-//                    insert.bindDouble(5, keyword.type);
-//                    insert.bindDouble(6, keyword.year);
-//
-//                    insert.execute();
-//                }
-
+                    ContentValues cValPT = new ContentValues();
+                    cValPT.put(Constructor.TabPozitiiTransare.COL_2, nid);
+                    cValPT.put(Constructor.TabPozitiiTransare.COL_3, vGreutateS);
+                    cValPT.put(Constructor.TabPozitiiTransare.COL_4, Integer.parseInt(v.afisareDenumirePT.getTag(R.string.tagRezultateTransare).toString()));
+                    db.insert(Constructor.TabPozitiiTransare.NUME_TABEL, null, cValPT);
+                }
 
             }
-//            mDb.setTransactionSuccessful();
-//            mDb.endTransaction();
+            db.setTransactionSuccessful();
+            db.endTransaction();
+            Toast.makeText(this, "Ai  inserat in Baza de date :", Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
     }

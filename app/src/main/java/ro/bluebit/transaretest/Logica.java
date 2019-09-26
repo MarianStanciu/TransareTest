@@ -85,7 +85,7 @@ public class Logica {
         return retDenumiriPT;
     }
 
-    //obtinere array cu nr Cod_IntM pentru materii prime
+    //obtinere array cu nr Cod_IntM pentru rezultate din transarea mat prime date de nCodInt
     public static int[] getCodIntPT(SQLiteDatabase db,int nCodInt) {
         String selectQuery = Constructor.get_SQL_QUERY_OBTINE_ANTET_LEGATURI(nCodInt);
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -93,7 +93,7 @@ public class Logica {
         if (cursor.moveToFirst()) {
             for (int i = 0; i < cursor.getCount(); i++) {
                 //cursor.getInt(0)
-                retCodIntPT[i] = cursor.getInt(0);
+                retCodIntPT[i] = cursor.getInt(cursor.getColumnIndexOrThrow(Constructor.TabPozitiiTransare.COL_4));
                 cursor.moveToNext();
 
             }

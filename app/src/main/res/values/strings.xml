@@ -34,4 +34,5 @@
         <!--        <item>Cotlet</item>-->
         <!--        <item>Tocat</item>-->
     </string-array>
+    <string name="tagRezultateTransare">1</string>
 </resources>

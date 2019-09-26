@@ -44,7 +44,7 @@ public class RecyclerAdapterTP extends RecyclerView.Adapter<RecyclerAdapterTP.Te
 
 
         //int retCodIntPT_id=retCodIntPT[position];
-        holder.afisareDenumirePT.setTag(1,retCodIntPT[position]);
+        holder.afisareDenumirePT.setTag(R.string.tagRezultateTransare,retCodIntPT[position]);
         //String retDenumiriPT_id= retDenumiriPT.get(position);
         holder.afisareDenumirePT.setText(retDenumiriPT.get(position));
 //        holder.preiaGreutate.setText(retGreutate[position].getEditTextValue());
@@ -61,7 +61,7 @@ public class RecyclerAdapterTP extends RecyclerView.Adapter<RecyclerAdapterTP.Te
     }
     public static class TextViewHolder extends RecyclerView.ViewHolder {
 
-        TextView afisareDenumirePT;
+        public TextView afisareDenumirePT;
         public EditText preiaGreutate;
         Context context;
         int[] retCodIntPT;

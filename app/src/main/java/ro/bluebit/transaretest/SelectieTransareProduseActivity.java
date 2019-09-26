@@ -138,15 +138,13 @@ public boolean onCreateOptionsMenu(Menu menu) {
             cValAT.put(Constructor.TabAntetTransare.COL_2,codTV.getText().toString());
             long nid = db.insert(Constructor.TabAntetTransare.NUME_TABEL,null,cValAT);
 
-
-
             db.setTransactionSuccessful();
             db.endTransaction();
 
             //interogare baza de date pentru id antet transare
 
 
-             db.beginTransaction();
+
 
 
 
@@ -175,12 +173,13 @@ public boolean onCreateOptionsMenu(Menu menu) {
 
 
 
-
+                db.beginTransaction();
                 ContentValues cValPT = new ContentValues();
                 cValPT.put(Constructor.TabPozitiiTransare.COL_2,nid);
                 cValPT.put(Constructor.TabPozitiiTransare.COL_3,vGreutateS);
-                cValPT.put(Constructor.TabPozitiiTransare.COL_4,);
-
+                cValPT.put(Constructor.TabPozitiiTransare.COL_4,Integer.parseInt(v.afisareDenumirePT.getTag(R.string.tagRezultateTransare).toString()));
+                cValAT.put(Constructor.TabPozitiiTransare.COL_5,codTV.getText().toString());
+                db.insert(Constructor.TabPozitiiTransare.NUME_TABEL,null,cValPT);
 
                 db.setTransactionSuccessful();
                 db.endTransaction();

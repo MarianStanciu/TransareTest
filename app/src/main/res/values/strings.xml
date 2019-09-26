@@ -24,7 +24,7 @@
     <string name="deja_inregistrat">Deja inregistrat?</string>
     <string name="cod_int">COD INT</string>
     <string name="Salvare">Salvare</string>
-
+    <string name="tagRezultateTransare">1</string>
     <string-array name="lista_selectie_transare">
         <item>Porc</item>
         <item>Vita</item>
@@ -34,5 +34,5 @@
         <!--        <item>Cotlet</item>-->
         <!--        <item>Tocat</item>-->
     </string-array>
-    <string name="tagRezultateTransare">1</string>
+
 </resources>

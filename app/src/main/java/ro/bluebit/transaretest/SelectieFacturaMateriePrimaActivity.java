@@ -51,7 +51,7 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity imple
         int [] retCodInt=Logica.getCodInt(db);
         int[] images =Logica.getImagini(db);
         recyclerView=findViewById(R.id.recyclerViewSelectieTransare);
-        layoutManager = new GridLayoutManager(this, 6);
+        layoutManager = new GridLayoutManager(this, 5);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
         ItemDecorator peVerctivala = new ItemDecorator(5);

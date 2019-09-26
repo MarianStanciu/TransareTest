@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -25,6 +26,8 @@ import ro.bluebit.transaretest.database.DatabaseHelper;
 import ro.bluebit.transaretest.utilitare.ItemDecorator;
 
 public class SelectieTransareProduseActivity extends AppCompatActivity {
+
+
     TextView denTV, codTV;
 
     private RecyclerView recyclerView;
@@ -179,11 +182,11 @@ public boolean onCreateOptionsMenu(Menu menu) {
                 cValPT.put(Constructor.TabPozitiiTransare.COL_3,vGreutateS);
                 cValPT.put(Constructor.TabPozitiiTransare.COL_4,Integer.parseInt(v.afisareDenumirePT.getTag(R.string.tagRezultateTransare).toString()));
                 cValAT.put(Constructor.TabPozitiiTransare.COL_5,codTV.getText().toString());
-                db.insert(Constructor.TabPozitiiTransare.NUME_TABEL,null,cValPT);
+                long ffinal=db.insert(Constructor.TabPozitiiTransare.NUME_TABEL,null,cValPT);
 
                 db.setTransactionSuccessful();
                 db.endTransaction();
-//
+                Toast.makeText(this, "Ai  inserat in Baza de date :"+ffinal, Toast.LENGTH_SHORT).show();
 //
 //                https://stackoverflow.com/questions/10184282/android-inserting-thousands-of-rows-to-sqlite
                 //insert.bindString(1, <valoarea> );

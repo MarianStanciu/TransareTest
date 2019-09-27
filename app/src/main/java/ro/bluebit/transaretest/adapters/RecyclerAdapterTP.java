@@ -1,6 +1,8 @@
 package ro.bluebit.transaretest.adapters;
 
 import android.content.Context;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,8 +53,29 @@ public class RecyclerAdapterTP extends RecyclerView.Adapter<RecyclerAdapterTP.Te
 // implementare text watcher pt a obtinr valorile introduse din edit text
  //       Log.d("print","yes");
         holder.preiaGreutate.getText();
-//        holder.denumireCodInt.setText(""+(retCodInt_id));
-//        holder.denumireSelectieImaginiTransare.setText(mDenumiriMateriiPrime_id);
+
+
+//
+//        holder.preiaGreutate.addTextChangedListener(new TextWatcher() {
+////            @Override
+////            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+////
+////            }
+////
+////            @Override
+////            public void onTextChanged(CharSequence s, int start, int before, int count) {
+////
+////            }
+////
+////            @Override
+////            public void afterTextChanged(Editable s) {
+////
+////                if (activity.getCurrentFocus() == holder.Edt_Text) {
+////
+////                    if (s.toString().length() > 0) {
+////
+////                        Arr_List.get(holder.pos).setQty(String.valueOf(s.toString().trim()));
+////                        Arr_List.set(holder.pos, Arr_List.get(holder.pos));
     }
 
     @Override

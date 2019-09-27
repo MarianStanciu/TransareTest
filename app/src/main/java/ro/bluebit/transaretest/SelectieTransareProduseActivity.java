@@ -148,7 +148,7 @@ public boolean onCreateOptionsMenu(Menu menu) {
 
 
         }
-        greutateFinala = findViewById(R.id.greutateFinala);
+        greutateFinala = findViewById(R.id.greutateFinala) ;
 
         if (id == R.id.action_salvare) {
             // insert inregistrare pt antet_transare

@@ -3,16 +3,17 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="center_horizontal">
+    android:layout_width="800dp"
+    android:layout_height="600dp"
+    android:layout_gravity="center_horizontal"
+    android:background="@color/colorGri">
 
     <FrameLayout
         android:layout_width="800dp"
         android:layout_height="600dp"
         android:layout_gravity="center_vertical"
         android:background="@color/colorAlbastru"
-        android:layout_marginStart="250dp">
+        >
 
 
     </FrameLayout>
@@ -22,7 +23,7 @@
         android:layout_height="550dp"
         android:layout_gravity="center_vertical"
         android:background="@color/colorGri"
-        android:layout_marginStart="275dp">
+        android:layout_marginStart="25dp">
 
         <TextView
             android:layout_width="450dp"

@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.math.MathUtils;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -129,23 +130,42 @@ public boolean onCreateOptionsMenu(Menu menu) {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
+        setContentView(R.layout.popup_verificare_cantitati);
+        TextView greutateInitiala, greutateFinala;
+        greutateInitiala = findViewById(R.id.greutateInitiala);
+        greutateInitiala.setText(mSgreutateF);
+        greutateFinala = findViewById(R.id.greutateFinala);
+
+
+        String greutateRezultataTransare = null;
+        for (int i = 0, n = recyclerView.getChildCount(); i < n; i++) {
+            View view = recyclerView.getChildAt(i);
+
+            RecyclerView.ViewHolder holder = recyclerView.getChildViewHolder(view);
+            RecyclerAdapterTP.TextViewHolder v = ((RecyclerAdapterTP.TextViewHolder) holder);
+            String verificareGreutateS = v.preiaGreutate.getText().toString();
+//aici de completat
+
+
+        }
+        greutateFinala = findViewById(R.id.greutateFinala);
 
         if (id == R.id.action_salvare) {
             // insert inregistrare pt antet_transare
             SQLiteDatabase db = myDb.getWritableDatabase();
             db.beginTransaction();
             ContentValues cValAT = new ContentValues();
-            cValAT.put(Constructor.TabAntetTransare.COL_3,mSfacturaF);
-            cValAT.put(Constructor.TabAntetTransare.COL_5,mSgreutateF);
-            cValAT.put(Constructor.TabAntetTransare.COL_2,codTV.getText().toString()); // aici trebuie cod_int din antet_legaturi corespunzator idului de mat prima
-            long nid = db.insert(Constructor.TabAntetTransare.NUME_TABEL,null,cValAT);
-            for ( int i =0 , n= recyclerView.getChildCount(); i<n; i++){
+            cValAT.put(Constructor.TabAntetTransare.COL_3, mSfacturaF);
+            cValAT.put(Constructor.TabAntetTransare.COL_5, mSgreutateF);
+            cValAT.put(Constructor.TabAntetTransare.COL_2, codTV.getText().toString()); // aici trebuie cod_int din antet_legaturi corespunzator idului de mat prima
+            long nid = db.insert(Constructor.TabAntetTransare.NUME_TABEL, null, cValAT);
+            for (int i = 0, n = recyclerView.getChildCount(); i < n; i++) {
                 View view = recyclerView.getChildAt(i);
 
                 RecyclerView.ViewHolder holder = recyclerView.getChildViewHolder(view);
-                RecyclerAdapterTP.TextViewHolder v = ((RecyclerAdapterTP.TextViewHolder) holder) ;
+                RecyclerAdapterTP.TextViewHolder v = ((RecyclerAdapterTP.TextViewHolder) holder);
                 String sGreutateS = v.preiaGreutate.getText().toString();
-                if(!sGreutateS.isEmpty()) {
+                if (!sGreutateS.isEmpty()) {
                     Double vGreutateS = Double.parseDouble(sGreutateS);
 
                     ContentValues cValPT = new ContentValues();

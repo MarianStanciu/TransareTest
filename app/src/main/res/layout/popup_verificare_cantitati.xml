@@ -85,7 +85,7 @@
             android:layout_marginTop="300dp"
             android:layout_marginStart="425dp"/>
 
-        <CheckedTextView
+        <Button
             android:layout_width="300dp"
             android:layout_height="60dp"
             android:layout_marginStart="25dp"
@@ -97,7 +97,7 @@
             android:textColor="@color/colorText"
             android:textSize="28sp" />
 
-        <CheckedTextView
+        <Button
             android:layout_width="325dp"
             android:layout_height="60dp"
             android:layout_marginStart="400dp"

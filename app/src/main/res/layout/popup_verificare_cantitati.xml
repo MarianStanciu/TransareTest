@@ -3,16 +3,17 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="center_horizontal">
+    android:layout_width="800dp"
+    android:layout_height="600dp"
+    android:layout_gravity="center_horizontal"
+    android:background="@color/colorGri">
 
     <FrameLayout
         android:layout_width="800dp"
         android:layout_height="600dp"
         android:layout_gravity="center_vertical"
         android:background="@color/colorAlbastru"
-        android:layout_marginStart="250dp">
+        >
 
 
     </FrameLayout>
@@ -22,7 +23,7 @@
         android:layout_height="550dp"
         android:layout_gravity="center_vertical"
         android:background="@color/colorGri"
-        android:layout_marginStart="275dp">
+        android:layout_marginStart="25dp">
 
         <TextView
             android:layout_width="450dp"
@@ -84,7 +85,8 @@
             android:layout_marginTop="300dp"
             android:layout_marginStart="425dp"/>
 
-        <CheckedTextView
+        <Button
+            android:id="@+id/mai_verifica_id"
             android:layout_width="300dp"
             android:layout_height="60dp"
             android:layout_marginStart="25dp"
@@ -96,7 +98,8 @@
             android:textColor="@color/colorText"
             android:textSize="28sp" />
 
-        <CheckedTextView
+        <Button
+            android:id="@+id/validare_rezultat_id"
             android:layout_width="325dp"
             android:layout_height="60dp"
             android:layout_marginStart="400dp"

@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -39,8 +40,7 @@ public class SelectieTransareProduseActivity extends AppCompatActivity {
     MenuItem butonsalvare;
     String mSgreutateF, mSfacturaF;
     Dialog dialog;
-    TextView buttonx;
-    TextView cantitate_inserata_tv;
+    Button validare_rezultat,mai_verifica;
     EditText testclear;
 
 
@@ -143,8 +143,41 @@ public boolean onCreateOptionsMenu(Menu menu) {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        displayPopupWindow();
         if (id == R.id.action_salvare) {
+
+            displayPopupWindow();
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+    public void displayPopupWindow() {
+        final PopupWindow popup = new PopupWindow(this);
+        View layout = getLayoutInflater().inflate(R.layout.popup_verificare_cantitati, null);
+        popup.setContentView(layout);
+        popup.setOutsideTouchable(true);
+        popup.setFocusable(true);
+        popup.showAtLocation(layout, Gravity.CENTER, 0, 0);
+        validare_rezultat=layout.findViewById(R.id.validare_rezultat_id);
+        mai_verifica=layout.findViewById(R.id.mai_verifica_id);
+        validare_rezultat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SalveazaInBazaDeDate();
+                popup.dismiss();
+            }
+        });
+        mai_verifica.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Toast.makeText(context, "AI REVENIT LA VALIDARE REZULTAT!!!!", Toast.LENGTH_LONG).show();
+                popup.dismiss();
+            }
+        });
+
+
+    }
+    public void SalveazaInBazaDeDate(){
+
             // insert inregistrare pt antet_transare
             SQLiteDatabase db = myDb.getWritableDatabase();
             db.beginTransaction();
@@ -174,17 +207,7 @@ public boolean onCreateOptionsMenu(Menu menu) {
             db.endTransaction();
             Toast.makeText(this, "Ai  inserat in Baza de date :", Toast.LENGTH_SHORT).show();
         }
-        return super.onOptionsItemSelected(item);
-    }
-    public void displayPopupWindow() {
-        PopupWindow popup = new PopupWindow(this);
-        View layout = getLayoutInflater().inflate(R.layout.popup_verificare_cantitati, null);
-        popup.setContentView(layout);
-        popup.setOutsideTouchable(true);
-        popup.setFocusable(true);
-        popup.showAtLocation(layout, Gravity.CENTER, 0, 0);
 
-    }
 
     public void StergeDupaSalvare(){
         testclear = findViewById(R.id.edittext_greutateTotala);

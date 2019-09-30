@@ -156,7 +156,22 @@ public boolean onCreateOptionsMenu(Menu menu) {
         popup.setContentView(layout);
         popup.setOutsideTouchable(true);
         popup.setFocusable(true);
+        TextView greutateInitiala, greutateFinala;
+        greutateInitiala = layout.findViewById(R.id.greutateInitiala);
+        greutateInitiala.setText(mSgreutateF);
+        greutateFinala = layout.findViewById(R.id.greutateFinala);
+
+
+        String greutateRezultataTransare = null;
+        for (int i = 0, n = recyclerView.getChildCount(); i < n; i++) {
+            View view = recyclerView.getChildAt(i);
+
+            RecyclerView.ViewHolder holder = recyclerView.getChildViewHolder(view);
+            RecyclerAdapterTP.TextViewHolder v = ((RecyclerAdapterTP.TextViewHolder) holder);
+            String verificareGreutateS = v.preiaGreutate.getText().toString();
+        }
         popup.showAtLocation(layout, Gravity.CENTER, 0, 0);
+
         validare_rezultat=layout.findViewById(R.id.validare_rezultat_id);
         mai_verifica=layout.findViewById(R.id.mai_verifica_id);
         validare_rezultat.setOnClickListener(new View.OnClickListener() {

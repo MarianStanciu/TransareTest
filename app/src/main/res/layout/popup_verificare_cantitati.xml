@@ -1,39 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
-    android:layout_width="500dp"
-    android:layout_height="412dp"
-    android:background="@color/colorPrimary"
-    android:layout_gravity="center">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal">
 
-    <TextView
-        android:id="@+id/butonx_id"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="470dp"
-        android:layout_marginTop="-20dp"
-        android:gravity="center"
-        android:text="X"
-        android:textColor="@color/colorGalben"
-        android:textStyle="bold"
-
-        >
-
-    </TextView>
-
-    <TextView
-        android:id="@+id/cantitate_inserata_tvid"
-        android:layout_width="200dp"
-        android:layout_height="70dp"
-        android:gravity="center"
-        android:layout_marginTop="100dp"
-        android:layout_marginLeft="-500dp"
-        android:text="Cantitate materie prima"
-        android:textColor="#f8fdff"
-        >
+    <FrameLayout
+        android:layout_width="800dp"
+        android:layout_height="600dp"
+        android:layout_gravity="center_vertical"
+        android:background="@color/colorAlbastru"
+        android:layout_marginStart="250dp">
 
 
-    </TextView>
+    </FrameLayout>
 
+    <FrameLayout
+        android:layout_width="750dp"
+        android:layout_height="550dp"
+        android:layout_gravity="center_vertical"
+        android:background="@color/colorGri"
+        android:layout_marginStart="275dp">
 
-</LinearLayout>
+        <TextView
+            android:layout_width="450dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="25dp"
+            android:background="@color/colorGalben"
+            android:gravity="center_vertical"
+            android:text="@string/TITLU_POPUP"
+            android:textColor="@color/colorText"
+            android:textAlignment="center"
+            android:textSize="28sp" />
+
+        <TextView
+            android:layout_width="350dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="200dp"
+            android:background="@color/colorGalben"
+            android:gravity="center_vertical"
+            android:text="@string/popup_GREUTATEFACTURA"
+            android:textAlignment="center"
+            android:textColor="@color/colorText"
+            android:textSize="28sp" />
+
+        <TextView
+            android:layout_width="350dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="300dp"
+            android:background="@color/colorGalben"
+            android:gravity="center_vertical"
+            android:text="@string/POPUP_GREUTATEDINTRANSARE"
+            android:textAlignment="center"
+            android:textColor="@color/colorText"
+            android:textSize="28sp" />
+        <TextView
+            android:id="@+id/greutateInitiala"
+            android:layout_width="250dp"
+            android:layout_height="75dp"
+            android:background="@color/colorGalben"
+            android:text="text"
+            android:textColor="@color/colorText"
+            android:gravity="center_vertical"
+            android:textAlignment="center"
+            android:textSize="28sp"
+            android:layout_marginTop="200dp"
+            android:layout_marginStart="425dp"/>
+        <TextView
+            android:id="@+id/greutateFinala"
+            android:layout_width="250dp"
+            android:layout_height="75dp"
+            android:background="@color/colorGalben"
+            android:text="text"
+            android:gravity="center_vertical"
+            android:textAlignment="center"
+            android:textSize="28sp"
+            android:textColor="@color/colorText"
+            android:layout_marginTop="300dp"
+            android:layout_marginStart="425dp"/>
+
+        <CheckedTextView
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="450dp"
+            android:background="#AA3232"
+            android:gravity="center_vertical"
+            android:text="@string/INvalidare_ecran_final"
+            android:textAlignment="center"
+            android:textColor="@color/colorText"
+            android:textSize="28sp" />
+
+        <CheckedTextView
+            android:layout_width="325dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="400dp"
+            android:layout_marginTop="450dp"
+            android:background="@color/colorPrimaryDark"
+            android:gravity="center_vertical"
+            android:text="@string/validare_rezultate"
+            android:textAlignment="center"
+            android:textColor="@color/colorText"
+            android:textSize="28sp" />
+    </FrameLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

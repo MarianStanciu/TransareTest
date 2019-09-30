@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -179,6 +180,8 @@ public boolean onCreateOptionsMenu(Menu menu) {
             public void onClick(View view) {
                 SalveazaInBazaDeDate();
                 popup.dismiss();
+                Intent revinoStart = new Intent(getApplicationContext(),SelectieFacturaMateriePrimaActivity.class);
+                startActivity(revinoStart);
             }
         });
         mai_verifica.setOnClickListener(new View.OnClickListener() {

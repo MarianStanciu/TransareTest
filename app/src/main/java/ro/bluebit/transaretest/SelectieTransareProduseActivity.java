@@ -1,16 +1,19 @@
 package ro.bluebit.transaretest;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +38,12 @@ public class SelectieTransareProduseActivity extends AppCompatActivity {
     Context context;
     MenuItem butonsalvare;
     String mSgreutateF, mSfacturaF;
+    Dialog dialog;
+    TextView buttonx;
+    TextView cantitate_inserata_tv;
+    EditText testclear;
+
+
 
 
     private RecyclerView.LayoutManager layoutManager;
@@ -46,7 +55,10 @@ public class SelectieTransareProduseActivity extends AppCompatActivity {
         denTV=findViewById(R.id.textViewAfisareDenumireTP);
         codTV=findViewById(R.id.textViewAfisareCodIntTP);
         butonsalvare = findViewById(R.id.action_salvare);
-
+        //buttonx.findViewById(R.id.butonx_id);
+        //greutatematerieprimadinfactura=findViewById(R.id.edittext_greutateTotala);
+       //cantitate_inserata_tv = cantitate_inserata_tv.findViewById(R.id.cantitate_inserata_tvid);
+        dialog = new Dialog(this);
 //        cod.setText(getIntent().getStringExtra(("retCodInt_id")));
 //        imageView=findViewById(R.id.afisareImaginiSelectie);
 //        imageView.setImageResource(getIntent().getIntExtra("image_id",  00 ));
@@ -58,6 +70,8 @@ public class SelectieTransareProduseActivity extends AppCompatActivity {
         denTV.setText(denumire);
         mSgreutateF=extras.getString("greutate");
         mSfacturaF=extras.getString("factura");
+
+
 
 
 
@@ -129,7 +143,7 @@ public boolean onCreateOptionsMenu(Menu menu) {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-
+        displayPopupWindow();
         if (id == R.id.action_salvare) {
             // insert inregistrare pt antet_transare
             SQLiteDatabase db = myDb.getWritableDatabase();
@@ -161,6 +175,20 @@ public boolean onCreateOptionsMenu(Menu menu) {
             Toast.makeText(this, "Ai  inserat in Baza de date :", Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
+    }
+    public void displayPopupWindow() {
+        PopupWindow popup = new PopupWindow(this);
+        View layout = getLayoutInflater().inflate(R.layout.popup_verificare_cantitati, null);
+        popup.setContentView(layout);
+        popup.setOutsideTouchable(true);
+        popup.setFocusable(true);
+        popup.showAtLocation(layout, Gravity.CENTER, 0, 0);
+
+    }
+
+    public void StergeDupaSalvare(){
+        testclear = findViewById(R.id.edittext_greutateTotala);
+        testclear.getText().clear();
     }
 }
 

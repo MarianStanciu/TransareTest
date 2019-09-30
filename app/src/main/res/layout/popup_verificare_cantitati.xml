@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="horizontal"
+    android:layout_width="500dp"
+    android:layout_height="412dp"
+    android:background="@color/colorPrimary"
+    android:layout_gravity="center">
+
+    <TextView
+        android:id="@+id/butonx_id"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="470dp"
+        android:layout_marginTop="-20dp"
+        android:gravity="center"
+        android:text="X"
+        android:textColor="@color/colorGalben"
+        android:textStyle="bold"
+
+        >
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/cantitate_inserata_tvid"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:gravity="center"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="-500dp"
+        android:text="Cantitate materie prima"
+        android:textColor="#f8fdff"
+        >
+
+
+    </TextView>
+
 
 </LinearLayout>

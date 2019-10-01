@@ -175,7 +175,9 @@ public boolean onCreateOptionsMenu(Menu menu) {
             RecyclerView.ViewHolder holder = recyclerView.getChildViewHolder(view);
             RecyclerAdapterTP.TextViewHolder v = ((RecyclerAdapterTP.TextViewHolder) holder);
             String verificareGreutateS = v.preiaGreutate.getText().toString();
-            nSuma = nSuma+parseDouble(v.preiaGreutate.getText().toString());
+            if(!v.preiaGreutate.getText().toString().isEmpty()){
+                nSuma = nSuma+parseDouble(v.preiaGreutate.getText().toString());
+            }
 
         }
         greutateFinala.setText((valueOf(nSuma).toString()));

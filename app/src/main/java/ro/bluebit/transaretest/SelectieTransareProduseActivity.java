@@ -30,6 +30,10 @@ import ro.bluebit.transaretest.database.Constructor;
 import ro.bluebit.transaretest.database.DatabaseHelper;
 import ro.bluebit.transaretest.utilitare.ItemDecorator;
 
+import static java.lang.Double.parseDouble;
+import static java.lang.Double.valueOf;
+import static java.lang.Integer.parseInt;
+
 public class SelectieTransareProduseActivity extends AppCompatActivity {
 
 
@@ -164,13 +168,17 @@ public boolean onCreateOptionsMenu(Menu menu) {
 
 
         String greutateRezultataTransare = null;
+        double nSuma = 0;
         for (int i = 0, n = recyclerView.getChildCount(); i < n; i++) {
             View view = recyclerView.getChildAt(i);
 
             RecyclerView.ViewHolder holder = recyclerView.getChildViewHolder(view);
             RecyclerAdapterTP.TextViewHolder v = ((RecyclerAdapterTP.TextViewHolder) holder);
             String verificareGreutateS = v.preiaGreutate.getText().toString();
+            nSuma = nSuma+parseDouble(v.preiaGreutate.getText().toString());
+
         }
+        greutateFinala.setText((valueOf(nSuma).toString()));
         popup.showAtLocation(layout, Gravity.CENTER, 0, 0);
 
         validare_rezultat=layout.findViewById(R.id.validare_rezultat_id);
@@ -211,12 +219,12 @@ public boolean onCreateOptionsMenu(Menu menu) {
                 RecyclerAdapterTP.TextViewHolder v = ((RecyclerAdapterTP.TextViewHolder) holder) ;
                 String sGreutateS = v.preiaGreutate.getText().toString();
                 if(!sGreutateS.isEmpty()) {
-                    Double vGreutateS = Double.parseDouble(sGreutateS);
+                    Double vGreutateS = parseDouble(sGreutateS);
 
                     ContentValues cValPT = new ContentValues();
                     cValPT.put(Constructor.TabPozitiiTransare.COL_2, nid);
                     cValPT.put(Constructor.TabPozitiiTransare.COL_3, vGreutateS);
-                    cValPT.put(Constructor.TabPozitiiTransare.COL_4, Integer.parseInt(v.afisareDenumirePT.getTag(R.string.tagRezultateTransare).toString()));
+                    cValPT.put(Constructor.TabPozitiiTransare.COL_4, parseInt(v.afisareDenumirePT.getTag(R.string.tagRezultateTransare).toString()));
                     db.insert(Constructor.TabPozitiiTransare.NUME_TABEL, null, cValPT);
                 }
 

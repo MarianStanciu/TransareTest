@@ -30,6 +30,9 @@ import ro.bluebit.transaretest.database.Constructor;
 import ro.bluebit.transaretest.database.DatabaseHelper;
 import ro.bluebit.transaretest.utilitare.ItemDecorator;
 
+import static java.lang.Double.parseDouble;
+import static java.lang.Double.valueOf;
+
 public class SelectieTransareProduseActivity extends AppCompatActivity {
 
 
@@ -159,18 +162,20 @@ public boolean onCreateOptionsMenu(Menu menu) {
         popup.setFocusable(true);
         TextView greutateInitiala, greutateFinala;
         greutateInitiala = layout.findViewById(R.id.greutateInitiala);
-        greutateInitiala.setText(mSgreutateF);
+        greutateInitiala.setText((mSgreutateF)+" Kg");
         greutateFinala = layout.findViewById(R.id.greutateFinala);
 
 
-        String greutateRezultataTransare = null;
+
+        double sumaRezultat=0;
         for (int i = 0, n = recyclerView.getChildCount(); i < n; i++) {
             View view = recyclerView.getChildAt(i);
 
             RecyclerView.ViewHolder holder = recyclerView.getChildViewHolder(view);
             RecyclerAdapterTP.TextViewHolder v = ((RecyclerAdapterTP.TextViewHolder) holder);
-            String verificareGreutateS = v.preiaGreutate.getText().toString();
+            sumaRezultat = sumaRezultat+parseDouble(v.preiaGreutate.getText().toString());
         }
+        greutateFinala.setText(valueOf(sumaRezultat).toString()+" Kg");
         popup.showAtLocation(layout, Gravity.CENTER, 0, 0);
 
         validare_rezultat=layout.findViewById(R.id.validare_rezultat_id);
@@ -211,7 +216,7 @@ public boolean onCreateOptionsMenu(Menu menu) {
                 RecyclerAdapterTP.TextViewHolder v = ((RecyclerAdapterTP.TextViewHolder) holder) ;
                 String sGreutateS = v.preiaGreutate.getText().toString();
                 if(!sGreutateS.isEmpty()) {
-                    Double vGreutateS = Double.parseDouble(sGreutateS);
+                    Double vGreutateS = parseDouble(sGreutateS);
 
                     ContentValues cValPT = new ContentValues();
                     cValPT.put(Constructor.TabPozitiiTransare.COL_2, nid);
@@ -223,7 +228,7 @@ public boolean onCreateOptionsMenu(Menu menu) {
             }
             db.setTransactionSuccessful();
             db.endTransaction();
-            Toast.makeText(this, "Ai  inserat in Baza de date :", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "AI  SALVAT REZULTATE DIN TRANSARE IN BAZA DE DATE", Toast.LENGTH_SHORT).show();
         }
 
 

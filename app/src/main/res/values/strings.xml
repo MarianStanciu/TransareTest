@@ -25,7 +25,7 @@
     <string name="cod_int">COD INT</string>
     <string name="Salvare">Salvare</string>
     <string name="tagRezultateTransare">1</string>
-       <string name="TITLU_POPUP">VERIFICA REZULTATELE !!!</string>
+    <string name="TITLU_POPUP">VERIFICA REZULTATELE !!!</string>
     <string name="popup_GREUTATEFACTURA">GREUTATE INTRODUSA DIN FACTURA </string>
     <string name="POPUP_GREUTATEDINTRANSARE">GREUTATE REZULTATA DIN TRANSARE</string>
     <string name="INvalidare_ecran_final">MAI VERIFIC ODATA !</string>

@@ -215,6 +215,7 @@ public boolean onCreateOptionsMenu(Menu menu) {
         try {
             idAL = crs.getLong(crs.getColumnIndexOrThrow(Constructor.TabAntetLegaturi.COL_3));
 
+
             db.beginTransaction();
             ContentValues cValAT = new ContentValues();
             cValAT.put(Constructor.TabAntetTransare.COL_3, mSfacturaF);

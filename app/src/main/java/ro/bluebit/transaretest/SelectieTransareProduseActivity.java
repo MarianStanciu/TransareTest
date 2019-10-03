@@ -31,7 +31,6 @@ import ro.bluebit.transaretest.database.DatabaseHelper;
 import ro.bluebit.transaretest.utilitare.ItemDecorator;
 
 import static java.lang.Double.parseDouble;
-import static java.lang.Double.valueOf;
 import static java.lang.Integer.parseInt;
 
 public class SelectieTransareProduseActivity extends AppCompatActivity {
@@ -180,7 +179,7 @@ public boolean onCreateOptionsMenu(Menu menu) {
             }
 
         }
-        greutateFinala.setText((valueOf(nSuma).toString()));
+        greutateFinala.setText(Double.toString(recyclerAdapterTP.Adunare()));
         popup.showAtLocation(layout, Gravity.CENTER, 0, 0);
 
         validare_rezultat=layout.findViewById(R.id.validare_rezultat_id);

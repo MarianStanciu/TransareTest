@@ -244,7 +244,6 @@ public class Constructor {
 
 
 
-
     public  static String get_SQL_QUERY_OBTINE_ANTET_LEGATURI (int nCodInt){
         return " SELECT " +
                 TabAntetLegaturi.NUME_TABEL+"."+TabAntetLegaturi.COL_2 + " as " +TabAntetTransare.COL_2 +" , "+

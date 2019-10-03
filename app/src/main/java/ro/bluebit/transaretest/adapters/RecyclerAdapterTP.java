@@ -22,8 +22,8 @@ public class RecyclerAdapterTP extends RecyclerView.Adapter<RecyclerAdapterTP.Te
     Context context;
     int[] retCodIntPT;
     List<String> retDenumiriPT;
-    public String[] mDataset=new String[retDenumiriPT.size()];// am setat dimensiunea sa fie egala cu arrayul de denumiri
-    public MyCustomEditTextListener myCustomEditTextListener;
+    String[] mDataset=new String[50];// am setat dimensiunea sa fie egala cu arrayul de denumiri;
+//    public MyCustomEditTextListener myCustomEditTextListener;
 
 
     public RecyclerAdapterTP(Context context, int[] retCodIntPT, List<String> retDenumiriPT) {
@@ -39,7 +39,7 @@ public class RecyclerAdapterTP extends RecyclerView.Adapter<RecyclerAdapterTP.Te
     @Override
     public TextViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_produse_transate,parent,false);
-        TextViewHolder textViewHolder= new TextViewHolder(view,context,retCodIntPT, retDenumiriPT,myCustomEditTextListener  );
+        TextViewHolder textViewHolder= new TextViewHolder(view,context,retCodIntPT, retDenumiriPT,new MyCustomEditTextListener () );
         return textViewHolder;
     }
 

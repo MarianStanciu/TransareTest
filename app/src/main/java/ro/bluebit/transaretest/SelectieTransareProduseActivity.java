@@ -39,7 +39,7 @@ public class SelectieTransareProduseActivity extends AppCompatActivity {
 
     TextView denTV, codTV;
 
-    private RecyclerView recyclerView;
+    RecyclerView recyclerView;
     DatabaseHelper myDb ;
     Context context;
     MenuItem butonsalvare;
@@ -95,6 +95,7 @@ public class SelectieTransareProduseActivity extends AppCompatActivity {
         ItemDecorator peVerctivala = new ItemDecorator(5);
         recyclerView.addItemDecoration(peVerctivala);
         recyclerAdapterTP = new RecyclerAdapterTP(context, retCodIntPT,  retDenumiriPT );
+        recyclerView.setAdapter(recyclerAdapterTP);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
@@ -168,7 +169,8 @@ public boolean onCreateOptionsMenu(Menu menu) {
         greutateInitiala = layout.findViewById(R.id.greutateInitiala);
         greutateInitiala.setText((mSgreutateF)+" Kg");
         greutateFinala = layout.findViewById(R.id.greutateFinala);
-        greutateFinala.setText(RecyclerAdapterTP.Adunare);
+        Double aaa=recyclerAdapterTP.Adunare();
+        greutateFinala.setText(String.valueOf(aaa));
 
 
 

@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -203,24 +204,32 @@ public boolean onCreateOptionsMenu(Menu menu) {
 
 
     }
-    public void SalveazaInBazaDeDate(){
+    public void SalveazaInBazaDeDate() {
 
-            // insert inregistrare pt antet_transare
-            SQLiteDatabase db = myDb.getWritableDatabase();
+        // insert inregistrare pt antet_transare
+        SQLiteDatabase db = myDb.getWritableDatabase();
+        String sSqlCmd = "SELECT " + Constructor.TabAntetLegaturi.COL_2 + " FROM " + Constructor.TabAntetLegaturi.NUME_TABEL +
+                " WHERE " + Constructor.TabAntetLegaturi.COL_3 + " = " + codTV.getText().toString();
+        Cursor crs = db.rawQuery(sSqlCmd, null);
+        Long idAL = 0L;
+        try {
+            idAL = crs.getLong(crs.getColumnIndexOrThrow(Constructor.TabAntetLegaturi.COL_3));
+
             db.beginTransaction();
             ContentValues cValAT = new ContentValues();
-            cValAT.put(Constructor.TabAntetTransare.COL_3,mSfacturaF);
-            cValAT.put(Constructor.TabAntetTransare.COL_5,mSgreutateF);
-            cValAT.put(Constructor.TabAntetTransare.COL_2,codTV.getText().toString()); // aici trebuie cod_int din antet_legaturi corespunzator idului de mat prima
-            long nid = db.insert(Constructor.TabAntetTransare.NUME_TABEL,null,cValAT);
-            for ( int i =0 , n= recyclerView.getChildCount(); i<n; i++){
+            cValAT.put(Constructor.TabAntetTransare.COL_3, mSfacturaF);
+            cValAT.put(Constructor.TabAntetTransare.COL_5, mSgreutateF);
+            cValAT.put(Constructor.TabAntetTransare.COL_2, codTV.getText().toString()); // aici trebuie cod_int din antet_legaturi corespunzator idului de mat prima
+            long nid = db.insert(Constructor.TabAntetTransare.NUME_TABEL, null, cValAT);
+            for (int i = 0, n = recyclerView.getChildCount(); i < n; i++) {
                 View view = recyclerView.getChildAt(i);
 
                 RecyclerView.ViewHolder holder = recyclerView.getChildViewHolder(view);
-                RecyclerAdapterTP.TextViewHolder v = ((RecyclerAdapterTP.TextViewHolder) holder) ;
+                RecyclerAdapterTP.TextViewHolder v = ((RecyclerAdapterTP.TextViewHolder) holder);
                 String sGreutateS = v.preiaGreutate.getText().toString();
-                if(!sGreutateS.isEmpty()) {
+                if (!sGreutateS.isEmpty()) {
                     Double vGreutateS = parseDouble(sGreutateS);
+
 
                     ContentValues cValPT = new ContentValues();
                     cValPT.put(Constructor.TabPozitiiTransare.COL_2, nid);
@@ -233,7 +242,10 @@ public boolean onCreateOptionsMenu(Menu menu) {
             db.setTransactionSuccessful();
             db.endTransaction();
             Toast.makeText(this, "Ai  inserat in Baza de date :", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
+    }
 
 
     public void StergeDupaSalvare(){

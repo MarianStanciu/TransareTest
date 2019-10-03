@@ -12,7 +12,7 @@ import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-        public final static int VERSIUNE_BAZA_DE_DATE = 21;
+        public final static int VERSIUNE_BAZA_DE_DATE = 22;
 
         public DatabaseHelper(Context context) {
             super(context, Constructor.DATABASE_NAME, null, VERSIUNE_BAZA_DE_DATE);

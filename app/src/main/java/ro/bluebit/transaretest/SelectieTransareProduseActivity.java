@@ -53,6 +53,8 @@ public class SelectieTransareProduseActivity extends AppCompatActivity {
 
     private RecyclerView.LayoutManager layoutManager;
     public RecyclerAdapterTP recyclerAdapterTP;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,10 +94,8 @@ public class SelectieTransareProduseActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         ItemDecorator peVerctivala = new ItemDecorator(5);
         recyclerView.addItemDecoration(peVerctivala);
-        recyclerAdapterTP = new RecyclerAdapterTP(context, retCodIntPT,  retDenumiriPT);
-        recyclerView.setAdapter(recyclerAdapterTP);
+        recyclerAdapterTP = new RecyclerAdapterTP(context, retCodIntPT,  retDenumiriPT );
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
 
 
 
@@ -144,6 +144,9 @@ public boolean onCreateOptionsMenu(Menu menu) {
     return super.onCreateOptionsMenu(menu);
 }
 
+
+
+
     // handle button activities
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -165,18 +168,20 @@ public boolean onCreateOptionsMenu(Menu menu) {
         greutateInitiala = layout.findViewById(R.id.greutateInitiala);
         greutateInitiala.setText((mSgreutateF)+" Kg");
         greutateFinala = layout.findViewById(R.id.greutateFinala);
+        greutateFinala.setText(RecyclerAdapterTP.Adunare);
 
 
 
-        double sumaRezultat=0;
+//        double sumaRezultat=0;
         for (int i = 0, n = recyclerView.getChildCount(); i < n; i++) {
             View view = recyclerView.getChildAt(i);
 
             RecyclerView.ViewHolder holder = recyclerView.getChildViewHolder(view);
             RecyclerAdapterTP.TextViewHolder v = ((RecyclerAdapterTP.TextViewHolder) holder);
-            sumaRezultat = sumaRezultat+parseDouble(v.preiaGreutate.getText().toString());
+//            sumaRezultat = sumaRezultat+parseDouble(v.preiaGreutate.getText().toString());
         }
-        greutateFinala.setText(valueOf(sumaRezultat).toString()+" Kg");
+
+
         popup.showAtLocation(layout, Gravity.CENTER, 0, 0);
 
         validare_rezultat=layout.findViewById(R.id.validare_rezultat_id);
@@ -259,29 +264,3 @@ public boolean onCreateOptionsMenu(Menu menu) {
 
 
 
-//        public static String sharedValue = null;
-//        You can access within any other class (with in the same package) as follows.
-//
-//        ClassC.sharedValue = "Some Text";   //set value
-//
-//        String s = ClassC.sharedValue;   //get value
-
-
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()) {
-//            case R.id.action_salvare:
-//                // User chose the "Settings" item, show the app settings UI...
-//                return true;
-//
-//           case R.id.action_favorite:
-//              // User chose the "Favorite" action, mark the current item
-//                // as a favorite...
-//               return true;
-//
-//            default:
-//                // If we got here, the user's action was not recognized.
-//                // Invoke the superclass to handle it.
-//                return super.onOptionsItemSelected(item);
-//
-//        }
-//    }

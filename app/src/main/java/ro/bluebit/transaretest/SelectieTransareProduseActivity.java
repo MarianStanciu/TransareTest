@@ -86,13 +86,14 @@ public class SelectieTransareProduseActivity extends AppCompatActivity {
         List<String> retDenumiriPT = Logica.getDenumiriPT(db,codCod)  ;
 
         int [] retCodIntPT=Logica.getCodIntPT(db,codCod);
+        String[] mDataset=new String[retCodIntPT.length];
         recyclerView=findViewById(R.id.recyclerviewTP);
         layoutManager = new GridLayoutManager(this, 2);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
         ItemDecorator peVerctivala = new ItemDecorator(5);
         recyclerView.addItemDecoration(peVerctivala);
-        recyclerAdapterTP = new RecyclerAdapterTP(context, retCodIntPT,  retDenumiriPT);
+        recyclerAdapterTP = new RecyclerAdapterTP(context, retCodIntPT,  retDenumiriPT,mDataset);
         recyclerView.setAdapter(recyclerAdapterTP);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -211,35 +212,29 @@ public boolean onCreateOptionsMenu(Menu menu) {
         String sSqlCmd = "SELECT " + Constructor.TabAntetLegaturi.COL_2 + " FROM " + Constructor.TabAntetLegaturi.NUME_TABEL +
                 " WHERE " + Constructor.TabAntetLegaturi.COL_3 + " = " + codTV.getText().toString();
         Cursor crs = db.rawQuery(sSqlCmd, null);
+        crs.moveToFirst();
         Long idAL = 0L;
         try {
-            idAL = crs.getLong(crs.getColumnIndexOrThrow(Constructor.TabAntetLegaturi.COL_3));
-
-
+            // idAl - cod_int din antet legaturi
+            idAL = crs.getLong(crs.getColumnIndexOrThrow(Constructor.TabAntetLegaturi.COL_2));
             db.beginTransaction();
             ContentValues cValAT = new ContentValues();
             cValAT.put(Constructor.TabAntetTransare.COL_3, mSfacturaF);
             cValAT.put(Constructor.TabAntetTransare.COL_5, mSgreutateF);
-            cValAT.put(Constructor.TabAntetTransare.COL_2, codTV.getText().toString()); // aici trebuie cod_int din antet_legaturi corespunzator idului de mat prima
+            cValAT.put(Constructor.TabAntetTransare.COL_2, idAL);
             long nid = db.insert(Constructor.TabAntetTransare.NUME_TABEL, null, cValAT);
-            for (int i = 0, n = recyclerView.getChildCount(); i < n; i++) {
-                View view = recyclerView.getChildAt(i);
-
-                RecyclerView.ViewHolder holder = recyclerView.getChildViewHolder(view);
-                RecyclerAdapterTP.TextViewHolder v = ((RecyclerAdapterTP.TextViewHolder) holder);
-                String sGreutateS = v.preiaGreutate.getText().toString();
-                if (!sGreutateS.isEmpty()) {
-                    Double vGreutateS = parseDouble(sGreutateS);
-
-
-                    ContentValues cValPT = new ContentValues();
-                    cValPT.put(Constructor.TabPozitiiTransare.COL_2, nid);
-                    cValPT.put(Constructor.TabPozitiiTransare.COL_3, vGreutateS);
-                    cValPT.put(Constructor.TabPozitiiTransare.COL_4, parseInt(v.afisareDenumirePT.getTag(R.string.tagRezultateTransare).toString()));
-                    db.insert(Constructor.TabPozitiiTransare.NUME_TABEL, null, cValPT);
+            for (int i = 0, n = recyclerView.getAdapter().getItemCount(); i < n; i++) {
+                    Double vGreutateS = Double.valueOf( recyclerAdapterTP.getValoareRezultat(i)) ;
+                    if(vGreutateS>0) {
+                        ContentValues cValPT = new ContentValues();
+                        cValPT.put(Constructor.TabPozitiiTransare.COL_2, nid);
+                        cValPT.put(Constructor.TabPozitiiTransare.COL_3, vGreutateS);
+                        cValPT.put(Constructor.TabPozitiiTransare.COL_4, recyclerAdapterTP.getIdPozLegaturi(i));
+                        db.insert(Constructor.TabPozitiiTransare.NUME_TABEL, null, cValPT);
+                    }
                 }
 
-            }
+  //          }
             db.setTransactionSuccessful();
             db.endTransaction();
             Toast.makeText(this, "Ai  inserat in Baza de date :", Toast.LENGTH_SHORT).show();

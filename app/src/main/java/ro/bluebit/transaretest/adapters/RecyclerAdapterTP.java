@@ -21,15 +21,16 @@ public class RecyclerAdapterTP extends RecyclerView.Adapter<RecyclerAdapterTP.Te
     Context context;
     int[] retCodIntPT;
     List<String> retDenumiriPT;
-    public String[] mDataset=new String[40];
+    String[] mDataset ;
 
 
 
 
-    public RecyclerAdapterTP(Context context, int[] retCodIntPT, List<String> retDenumiriPT) {
+    public RecyclerAdapterTP(Context context, int[] retCodIntPT, List<String> retDenumiriPT , String[] mDataset ) {
         this.context = context;
         this.retCodIntPT = retCodIntPT;
         this.retDenumiriPT = retDenumiriPT;
+        this.mDataset=mDataset;
 
         //setHasStableIds(true); - id-uri stabile
     }
@@ -45,11 +46,6 @@ public class RecyclerAdapterTP extends RecyclerView.Adapter<RecyclerAdapterTP.Te
 
     @Override
     public void onBindViewHolder(@NonNull TextViewHolder holder, int position) {
-
-
-        int retCodIntPT_id=retCodIntPT[position];
-        holder.afisareDenumirePT.setTag(R.string.tagRezultateTransare,retCodIntPT[position]);
-
         //String retDenumiriPT_id= retDenumiriPT.get(position);
         holder.afisareDenumirePT.setText(retDenumiriPT.get(position));
 //        holder.preiaGreutate.setText(retGreutate[position].getEditTextValue());
@@ -75,8 +71,7 @@ public class RecyclerAdapterTP extends RecyclerView.Adapter<RecyclerAdapterTP.Te
         public MyCustomEditTextListener myCustomEditTextListener;
 
 
-
-        public TextViewHolder(@NonNull View itemView, Context context, int[] retCodIntPT, List<String> retDenumiriPT,MyCustomEditTextListener myCustomEditTextListener) {
+        public TextViewHolder(@NonNull View itemView, Context context, int[] retCodIntPT, List<String> retDenumiriPT,MyCustomEditTextListener myCustomEditTextListener ) {
             super(itemView);
             afisareDenumirePT =itemView.findViewById(R.id.rezultat_transare);
             preiaGreutate = itemView.findViewById(R.id.greutate_introd_rezultat_transare);
@@ -85,6 +80,7 @@ public class RecyclerAdapterTP extends RecyclerView.Adapter<RecyclerAdapterTP.Te
             this.retDenumiriPT = retDenumiriPT;
             this.myCustomEditTextListener = myCustomEditTextListener;
             this.preiaGreutate.addTextChangedListener(myCustomEditTextListener);
+
 
 
         }
@@ -133,6 +129,16 @@ public class RecyclerAdapterTP extends RecyclerView.Adapter<RecyclerAdapterTP.Te
         return  suma ;
     }
 
+    public String getValoareRezultat(int i) {
+        if(null!=mDataset[i] && !mDataset[i].isEmpty()) {
+            return mDataset[i];
+        } else {
+            return "0";
+        }
+    }
+    public int getIdPozLegaturi (int i) {
+        return retCodIntPT[i];
+    }
     public class PreiaGreutateCodIntDenumire{
         private String greutate, nume, cod;
 

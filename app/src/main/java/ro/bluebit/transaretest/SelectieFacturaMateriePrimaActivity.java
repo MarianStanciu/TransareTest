@@ -67,6 +67,17 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity imple
 //                + " values " + (sgreutate + sfactura);
 //    }
 
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        EditText edittext_NrFactura=findViewById(R.id.edittext_NrFactura);
+        edittext_NrFactura.getText().clear();
+        EditText edittext_greutateTotala= findViewById(R.id.edittext_greutateTotala);
+        edittext_greutateTotala.getText().clear();
+    }
+
+
     public String getGreutate() {
 //        cantitate=findViewById(R.id.edittext_greutateTotala);
 //        sgreutate=String.valueOf(cantitate);
@@ -154,30 +165,4 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity imple
         }
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-
-        int variabilaback = 0;
-        int i;
-        for (i=0;i<2;i++) {
-        variabilaback=i;
-        if (variabilaback==0) {
-
-        }
-
-//        int variabilaback = 0;
-//        int i;
-//        for (i=0;i<2;i++) {
-//        variabilaback=i;
-//        if (variabilaback==0){
-//            Toast.makeText(this, "Apasa inca odata sa inchizi aplicatia", Toast.LENGTH_SHORT).show();
-//        }
-//        if(variabilaback==1){
-//            System.exit(0);
-//        }
-//        }
-//
-//    }
-
-    }}}
+   }

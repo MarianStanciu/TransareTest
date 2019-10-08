@@ -198,7 +198,9 @@ public boolean onCreateOptionsMenu(Menu menu) {
                 else{
                 SalveazaInBazaDeDate();
                 popup.dismiss();
-                Intent revinoStart = new Intent(getApplicationContext(),SelectieFacturaMateriePrimaActivity.class);
+
+                Intent revinoStart = new Intent(getApplicationContext(), SelectieFacturaMateriePrimaActivity.class);
+
                 startActivity(revinoStart);
                 finish();
                 //((SelectieTransareProduseActivity) context).finish();

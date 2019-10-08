@@ -81,6 +81,7 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity imple
 
 
 
+
 //    public boolean insertGreutateFactura(){
 //        SQLiteDatabase db =myDb.getWritableDatabase();
 //        ContentValues cval = new ContentValues();
@@ -152,4 +153,31 @@ public class SelectieFacturaMateriePrimaActivity extends AppCompatActivity imple
             imm.hideSoftInputFromWindow(activity.getWindow().getDecorView().getWindowToken(), 0);
         }
     }
-}
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        int variabilaback = 0;
+        int i;
+        for (i=0;i<2;i++) {
+        variabilaback=i;
+        if (variabilaback==0) {
+
+        }
+
+//        int variabilaback = 0;
+//        int i;
+//        for (i=0;i<2;i++) {
+//        variabilaback=i;
+//        if (variabilaback==0){
+//            Toast.makeText(this, "Apasa inca odata sa inchizi aplicatia", Toast.LENGTH_SHORT).show();
+//        }
+//        if(variabilaback==1){
+//            System.exit(0);
+//        }
+//        }
+//
+//    }
+
+    }}}

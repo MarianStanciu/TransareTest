@@ -72,6 +72,8 @@ public class RecyclerAdapterSelectieTransare extends RecyclerView.Adapter<Recycl
 
     }
 
+
+
     public static class ImageViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         ImageView selectieImaginiTransare;
@@ -82,6 +84,7 @@ public class RecyclerAdapterSelectieTransare extends RecyclerView.Adapter<Recycl
         int [] retCodInt;
         List mDenumiriMateriiPrime;
         OnSelctieMPFacturaListener onSelctieMPFacturaListener;
+
 
         private ImageViewHolder(@NonNull View itemView, final Context context, int[] images, final List mDenumiriMateriiPrime, final int[] retCodInt, OnSelctieMPFacturaListener onSelctieMPFacturaListener) {
             super(itemView);
@@ -117,8 +120,10 @@ public class RecyclerAdapterSelectieTransare extends RecyclerView.Adapter<Recycl
 
 
                         context.startActivity(intentcdInt);
+                        //((SelectieFacturaMateriePrimaActivity) context).finish(); // trece inapoi la log in
 //                        Toast.makeText(v.getContext(), "Ai selectat Cod INT : " +retCodInt[getAdapterPosition()], Toast.LENGTH_LONG).show();
 //                        Toast.makeText(v.getContext(), "Ai selectat: " + mDenumiriMateriiPrime.get(getAdapterPosition()), Toast.LENGTH_LONG).show();
+
                     }
                 }
             });
@@ -146,4 +151,5 @@ public class RecyclerAdapterSelectieTransare extends RecyclerView.Adapter<Recycl
 
                         void OnSelctieMPFacturaClick(int position);
         }
+
 }

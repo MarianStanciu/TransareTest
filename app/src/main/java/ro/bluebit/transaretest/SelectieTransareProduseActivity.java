@@ -32,7 +32,6 @@ import ro.bluebit.transaretest.database.DatabaseHelper;
 import ro.bluebit.transaretest.utilitare.ItemDecorator;
 
 import static java.lang.Double.parseDouble;
-import static java.lang.Integer.parseInt;
 
 public class SelectieTransareProduseActivity extends AppCompatActivity {
 
@@ -150,7 +149,6 @@ public boolean onCreateOptionsMenu(Menu menu) {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_salvare) {
-
             displayPopupWindow();
         }
 
@@ -162,10 +160,11 @@ public boolean onCreateOptionsMenu(Menu menu) {
         popup.setContentView(layout);
         popup.setOutsideTouchable(true);
         popup.setFocusable(true);
-        TextView greutateInitiala, greutateFinala;
+        final TextView greutateInitiala, greutateFinala;
         greutateInitiala = layout.findViewById(R.id.greutateInitiala);
         greutateInitiala.setText(mSgreutateF);
         greutateFinala = layout.findViewById(R.id.greutateFinala);
+
 
 
         String greutateRezultataTransare = null;
@@ -178,28 +177,38 @@ public boolean onCreateOptionsMenu(Menu menu) {
             String verificareGreutateS = v.preiaGreutate.getText().toString();
             if(!v.preiaGreutate.getText().toString().isEmpty()){
                 nSuma = nSuma+parseDouble(v.preiaGreutate.getText().toString());
+
             }
 
         }
+
         greutateFinala.setText(Double.toString(recyclerAdapterTP.Adunare()));
         popup.showAtLocation(layout, Gravity.CENTER, 0, 0);
 
         validare_rezultat=layout.findViewById(R.id.validare_rezultat_id);
         mai_verifica=layout.findViewById(R.id.mai_verifica_id);
         validare_rezultat.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
+                if(recyclerAdapterTP.Adunare()==0.0){
+                    popup.dismiss();
+                    Toast.makeText(SelectieTransareProduseActivity.this, "NU AI INTRODUS VALORI PENTRU TRANSARE!!!!", Toast.LENGTH_SHORT).show();
+                }
+                else{
                 SalveazaInBazaDeDate();
                 popup.dismiss();
                 Intent revinoStart = new Intent(getApplicationContext(),SelectieFacturaMateriePrimaActivity.class);
                 startActivity(revinoStart);
-            }
+                finish();
+                //((SelectieTransareProduseActivity) context).finish();
+            }}
         });
         mai_verifica.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Toast.makeText(context, "AI REVENIT LA VALIDARE REZULTAT!!!!", Toast.LENGTH_LONG).show();
                 popup.dismiss();
+
             }
         });
 
@@ -237,7 +246,7 @@ public boolean onCreateOptionsMenu(Menu menu) {
   //          }
             db.setTransactionSuccessful();
             db.endTransaction();
-            Toast.makeText(this, "Ai  inserat in Baza de date :", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Ai  inserat in Baza de date", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
